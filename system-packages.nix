@@ -16,5 +16,8 @@
     android-tools
     scrcpy
     bat
+    onefetch
+    gh
+    lua-language-server
   ];
 }

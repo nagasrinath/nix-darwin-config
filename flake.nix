@@ -12,7 +12,7 @@
     configuration = import ./configuration.nix { inherit inputs; };
   in
   {
-    darwinConfigurations."Nagas-MacBook-Air" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."n45devs-pc" = nix-darwin.lib.darwinSystem {
       modules = [ configuration ];
     };
   };

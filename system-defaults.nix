@@ -11,5 +11,6 @@
     loginwindow.LoginwindowText = "n45.dev";
     screencapture.location = "~/Pictures/Screenshots";
     screensaver.askForPasswordDelay = 10;
+    NSGlobalDomain.NSWindowShouldDragOnGesture = true;
   };
 }

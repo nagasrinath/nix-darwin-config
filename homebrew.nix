@@ -8,7 +8,9 @@
     onActivation.autoUpdate = true;
     onActivation.upgrade = true;
 
-    taps = [];
+    taps = [
+      "nikitabobko/tap"
+    ];
     brews = [
       "mas"
     ];
@@ -66,6 +68,9 @@
       "openvpn-connect"
       "jordanbaird-ice"
       "fleet"
+      "steam"
+      "motrix"
+      "aerospace"
     ];
   };
 }
