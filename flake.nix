@@ -14,9 +14,9 @@
     darwinConfigurations."n45devs-mac" = nix-darwin.lib.darwinSystem {
       modules = [
         home-manager.darwinModules.home-manager
-        Users/me/Nix/home.nix
-        Users/me/Nix/homebrew.nix
-        Users/me/Nix/configuration.nix
+        ./home.nix
+        ./homebrew.nix
+        ./configuration.nix
       ];
     };
   };
