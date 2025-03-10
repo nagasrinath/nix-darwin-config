@@ -5,6 +5,7 @@
     ./shell.nix
     ./core.nix
     ./starship.nix
+    ./ghostty.nix
   ];
 
   home = {
