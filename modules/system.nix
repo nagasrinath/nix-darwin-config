@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   system = {
     stateVersion = 6;
     activationScripts.postUserActivation.text = ''
@@ -89,7 +88,8 @@
   programs.zsh.enable = true;
   programs.fish.enable = true;
   environment.shells = [
-    pkgs.zsh pkgs.fish
+    pkgs.zsh
+    pkgs.fish
   ];
 
   time.timeZone = "Asia/Calcutta";

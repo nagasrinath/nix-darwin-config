@@ -1,6 +1,4 @@
-{ username, ... }:
-
-{
+{username, ...}: {
   imports = [
     ./shell.nix
     ./core.nix

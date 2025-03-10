@@ -2,8 +2,7 @@
   username,
   hostname,
   ...
-} @ args:
-{
+} @ args: {
   networking.hostName = hostname;
   networking.computerName = hostname;
   system.defaults.smb.NetBIOSName = hostname;
