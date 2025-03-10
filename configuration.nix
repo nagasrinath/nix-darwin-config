@@ -10,7 +10,7 @@
 
   environment.systemPackages = with pkgs; [
     vim starship neovim eza dust fastfetch wget podman podman-compose
-    python3 ollama android-tools scrcpy bat onefetch gh lua-language-server htop
+    python3 ollama android-tools scrcpy bat onefetch gh lua-language-server htop nixd
   ];
   environment.shells = [pkgs.fish pkgs.zsh];
   environment.shellAliases = { ll = "ls -l"; };

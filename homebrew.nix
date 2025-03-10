@@ -15,19 +15,18 @@
       "Wireguard" = 1451685025;
       "Davinci Resolve" = 571213070;
       "Amphetamine" = 937984704;
+      "Whatsapp" = 310633997;
     };
     casks = [
       "ghostty" "librewolf" "ollamac" "jan" "vivaldi" "raycast"
       "intellij-idea" "pycharm" "clion" "vmware-fusion"
       "proton-pass" "proton-mail-bridge" "proton-drive" "protonvpn"
-      "proton-mail" "whatsapp" "telegram" "arc" "brave-browser"
+      "proton-mail" "telegram" "arc" "brave-browser"
       "iina" "discord" "signal" "element" "dbeaver-community"
-      "inkscape" "zed" "zed@preview" "vscodium" "utm" "gimp"
-      "spotify" "zen-browser" "audacity" "transmission" "wireshark"
-      "tailscale" "android-studio" "obs" "chatgpt" "orion"
-      "eloston-chromium" "postman" "vlc" "hiddenbar" "cyberduck"
-      "playcover-community" "openvpn-connect" "jordanbaird-ice"
-      "fleet" "steam" "motrix" "aerospace"
+      "inkscape" "zed" "utm" "gimp" "spotify" "zen-browser"
+      "audacity" "transmission" "wireshark" "tailscale"
+      "android-studio" "obs" "eloston-chromium" "postman" "vlc"
+      "cyberduck" "openvpn-connect" "jordanbaird-ice" "steam" "motrix"
     ];
   };
 }
