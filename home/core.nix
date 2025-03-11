@@ -28,12 +28,13 @@
     ollama
     android-tools
     scrcpy
-    bat
     onefetch
     gh
     lua-language-server
     htop
     nixd
+    ffmpeg
+    macchina
   ];
 
   programs = {
@@ -64,6 +65,29 @@
     skim = {
       enable = true;
       enableFishIntegration = true;
+    };
+
+    helix = {
+      enable = true;
+      settings = {
+        theme = "catppuccin_mocha";
+        editor = {
+          line-number = "relative";
+          lsp.display-messages = true;
+        };
+        keys.normal = {
+          space.space = "file_picker";
+          space.w = ":w";
+          space.q = ":q";
+          esc = [ "collapse_selection" "keep_primary_selection" ];
+        };
+      };
+    };
+
+    bat = {
+      enable = true;
+      config = {
+      };
     };
   };
 }

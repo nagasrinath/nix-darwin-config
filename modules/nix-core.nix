@@ -5,11 +5,16 @@
 }: {
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
-  nix.enable = false;
+  nix.enable = true;
 
   nix.package = pkgs.nix;
 
-  nix.settings = {
-    auto-optimise-store = true;
+  nix.gc = {
+    automatic = lib.mkDefault true;
+    options = lib.mkDefault "--delete-older-than 7d";
+  };
+
+  nix.optimise = {
+    automatic = true;
   };
 }

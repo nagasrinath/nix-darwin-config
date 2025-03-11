@@ -13,6 +13,7 @@
         mru-spaces = false;
         orientation = "bottom";
         show-recents = true;
+        mineffect = "suck";
       };
 
       finder = {
@@ -24,6 +25,10 @@
       };
 
       trackpad = {
+      };
+
+      controlcenter = {
+        BatteryShowPercentage = true;
       };
 
       NSGlobalDomain = {
@@ -77,7 +82,6 @@
 
       loginwindow = {
         GuestEnabled = false;
-        SHOWFULLNAME = true;
         LoginwindowText = "BE HAPPY :-)";
       };
     };
@@ -97,6 +101,7 @@
   fonts = {
     packages = with pkgs; [
       nerd-fonts.inconsolata
+      departure-mono
     ];
   };
 }
