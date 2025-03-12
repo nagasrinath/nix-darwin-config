@@ -4,6 +4,7 @@
     ./core.nix
     ./starship.nix
     ./ghostty.nix
+    ./yabai.nix
   ];
 
   home = {

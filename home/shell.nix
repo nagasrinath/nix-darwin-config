@@ -4,8 +4,9 @@
     interactiveShellInit = "set fish_greeting";
     shellAliases = {
       "..." = "cd ../..";
-      "vim" = "nvim";
+      "vim" = "hx";
       "ff" = "fastfetch";
+      "ping" = "gping";
     };
   };
 }

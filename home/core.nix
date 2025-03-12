@@ -35,13 +35,21 @@
     nixd
     ffmpeg
     macchina
+    spotify-player
+    gping
   ];
+
+  services = {
+    ollama = {
+      enable = true;
+    };
+  };
 
   programs = {
     neovim = {
       enable = true;
       defaultEditor = true;
-      vimAlias = true;
+      # vimAlias = true;
     };
 
     eza = {
@@ -70,16 +78,24 @@
     helix = {
       enable = true;
       settings = {
-        theme = "catppuccin_mocha";
+        theme = "gruvbox_dark_hard";
         editor = {
           line-number = "relative";
           lsp.display-messages = true;
+        };
+        editor.statusline = {
+          mode.normal = "NORMAL";
+          mode.insert = "INSERT";
+          mode.select = "SELECT";
+        };
+        editor.cursor-shape = {
+          insert = "bar";
         };
         keys.normal = {
           space.space = "file_picker";
           space.w = ":w";
           space.q = ":q";
-          esc = [ "collapse_selection" "keep_primary_selection" ];
+          esc = ["collapse_selection" "keep_primary_selection"];
         };
       };
     };
