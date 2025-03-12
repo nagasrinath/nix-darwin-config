@@ -16,7 +16,6 @@
 
     masApps = {
       "Simplenote" = 692867256;
-      "Photomator" = 1444636541;
       "Wireguard" = 1451685025;
       "Davinci Resolve" = 571213070;
       "Amphetamine" = 937984704;
@@ -26,22 +25,20 @@
     taps = [
       "homebrew/services"
       "nikitabobko/tap"
+      "koekeishiya/formulae"
     ];
 
     brews = [
       "mas"
+      "yabai"
+      "skhd"
     ];
 
     casks = [
       "ghostty"
       "librewolf"
-      "ollamac"
-      "jan"
-      "vivaldi"
       "raycast"
       "intellij-idea"
-      "pycharm"
-      "clion"
       "vmware-fusion"
       "proton-pass"
       "proton-mail-bridge"
@@ -72,10 +69,8 @@
       "eloston-chromium"
       "postman"
       "vlc"
-      "cyberduck"
       "openvpn-connect"
       "jordanbaird-ice"
-      "steam"
       "motrix"
     ];
   };
