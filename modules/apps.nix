@@ -20,6 +20,7 @@
       "Davinci Resolve" = 571213070;
       "Amphetamine" = 937984704;
       "Whatsapp" = 310633997;
+      "Codye" = 1516894961;
     };
 
     taps = [
@@ -30,8 +31,8 @@
 
     brews = [
       "mas"
-      "yabai"
-      "skhd"
+      #"yabai"
+      #"skhd"
     ];
 
     casks = [
@@ -72,6 +73,7 @@
       "openvpn-connect"
       "jordanbaird-ice"
       "motrix"
+      "obsidian"
     ];
   };
 }
