@@ -9,9 +9,9 @@
       menuExtraClock.IsAnalog = true;
 
       dock = {
-        autohide = true;
+        autohide = false;
         mru-spaces = false;
-        orientation = "bottom";
+        orientation = "right";
         show-recents = true;
         mineffect = "suck";
       };
@@ -82,7 +82,7 @@
 
       loginwindow = {
         GuestEnabled = false;
-        LoginwindowText = "BE HAPPY :-)";
+        LoginwindowText = "n45.dev";
       };
     };
   };
@@ -101,6 +101,7 @@
   fonts = {
     packages = with pkgs; [
       nerd-fonts.inconsolata
+      nerd-fonts.comic-shanns-mono
       departure-mono
     ];
   };
