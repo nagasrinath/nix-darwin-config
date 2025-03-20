@@ -75,34 +75,10 @@
       enableFishIntegration = true;
     };
 
-    helix = {
-      enable = true;
-      settings = {
-        theme = "gruvbox_dark_hard";
-        editor = {
-          line-number = "relative";
-          lsp.display-messages = true;
-        };
-        editor.statusline = {
-          mode.normal = "NORMAL";
-          mode.insert = "INSERT";
-          mode.select = "SELECT";
-        };
-        editor.cursor-shape = {
-          insert = "bar";
-        };
-        keys.normal = {
-          space.space = "file_picker";
-          space.w = ":w";
-          space.q = ":q";
-          esc = ["collapse_selection" "keep_primary_selection"];
-        };
-      };
-    };
-
     bat = {
       enable = true;
       config = {
+        theme = "OneDark";
       };
     };
   };

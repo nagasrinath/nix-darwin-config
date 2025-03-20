@@ -9,10 +9,10 @@
       menuExtraClock.IsAnalog = true;
 
       dock = {
-        autohide = false;
+        autohide = true;
         mru-spaces = false;
-        orientation = "right";
-        show-recents = true;
+        orientation = "bottom";
+        show-recents = false;
         mineffect = "suck";
       };
 
@@ -102,6 +102,7 @@
     packages = with pkgs; [
       nerd-fonts.inconsolata
       nerd-fonts.comic-shanns-mono
+      nerd-fonts.jetbrains-mono
       departure-mono
     ];
   };
