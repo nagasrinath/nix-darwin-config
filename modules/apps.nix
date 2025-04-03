@@ -31,6 +31,7 @@
 
     brews = [
       "mas"
+      "postgresql"
       #"yabai"
       #"skhd"
     ];
@@ -54,7 +55,6 @@
       "discord"
       "signal"
       "element"
-      "dbeaver-community"
       "inkscape"
       "zed"
       "utm"
@@ -71,9 +71,13 @@
       "postman"
       "vlc"
       "openvpn-connect"
-      "jordanbaird-ice"
       "motrix"
       "obsidian"
+      "sequel-ace"
+      "datagrip"
+      "mullvad-browser"
+      "orion"
+      "cloudflare-warp"
     ];
   };
 }

@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    tokei
     zip
     xz
     unzip
@@ -37,6 +38,8 @@
     macchina
     spotify-player
     gping
+    pipx
+    csvkit
   ];
 
   services = {
@@ -56,6 +59,15 @@
       enable = true;
       git = true;
       icons = "auto";
+      enableFishIntegration = true;
+    };
+
+    nushell = {
+      enable = true;
+    };
+
+    zoxide = {
+      enable = true;
       enableFishIntegration = true;
     };
 

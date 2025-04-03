@@ -19,6 +19,7 @@
         };
         cursor-shape = {
           insert = "bar";
+          select = "underline";
         };
       };
       keys.normal = {
