@@ -6,6 +6,7 @@
     ./ghostty.nix
     ./yabai.nix
     ./helix.nix
+    ./zed.nix
   ];
 
   home = {

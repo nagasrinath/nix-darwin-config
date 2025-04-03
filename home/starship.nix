@@ -2,6 +2,8 @@
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
+    enableNushellIntegration = true;
+    enableInteractive = true;
     settings = {
       add_newline = false;
       character = {

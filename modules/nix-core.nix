@@ -11,7 +11,7 @@
 
   nix.gc = {
     automatic = lib.mkDefault true;
-    options = lib.mkDefault "--delete-older-than 7d";
+    options = lib.mkDefault "--delete-older-than 3d";
   };
 
   nix.optimise = {
