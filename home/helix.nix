@@ -1,6 +1,18 @@
 {...}: {
   programs.helix = {
     enable = true;
+    # languages = {
+    #   language-server.gpt = {
+    #     command = "helix-gpt";
+    #   };
+
+    #   language = [{
+    #     name = "python";
+    #     language-servers = [
+    #       "gpt"
+    #     ];
+    #   }];
+    # };
     settings = {
       theme = "onedark";
       editor = {
@@ -8,7 +20,16 @@
         cursorline = true;
         color-modes = true;
         line-number = "relative";
-        lsp.display-messages = true;
+        rulers = [120];
+        true-color = true;
+        lsp = {
+          display-messages = true;
+          auto-signature-help = false;
+        };
+        indent-guides = {
+          character = "╎";
+          render = true;
+        };
         statusline = {
           mode = {
             normal = "NORMAL";
@@ -20,6 +41,7 @@
         cursor-shape = {
           insert = "bar";
           select = "underline";
+          normal = "block";
         };
       };
       keys.normal = {

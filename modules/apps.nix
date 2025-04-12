@@ -56,7 +56,7 @@
       "signal"
       "element"
       "inkscape"
-      "zed"
+      "zed@preview"
       "utm"
       "gimp"
       "spotify"
@@ -78,6 +78,11 @@
       "mullvad-browser"
       "orion"
       "cloudflare-warp"
+      "anytype"
+      "pycharm"
+      "chatgpt"
+      "rapidapi"
+      "mongodb-compass"
     ];
   };
 }
