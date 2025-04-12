@@ -40,11 +40,16 @@
     gping
     pipx
     csvkit
+    ruff
+    python312
+    python312Packages.python-lsp-server
+    python312Packages.jedi-language-server
+    helix-gpt
   ];
 
   services = {
     ollama = {
-      enable = true;
+      #enable = true;
     };
   };
 
