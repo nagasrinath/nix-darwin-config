@@ -15,38 +15,36 @@
     };
 
     masApps = {
-      "Simplenote" = 692867256;
-      "Wireguard" = 1451685025;
-      "Davinci Resolve" = 571213070;
-      "Amphetamine" = 937984704;
       "Whatsapp" = 310633997;
-      "Codye" = 1516894961;
+      "Davinci Resolve" = 571213070;
     };
 
     taps = [
       "homebrew/services"
       "nikitabobko/tap"
       "koekeishiya/formulae"
+      "grishka/grishka"
+      "mobile-dev-inc/tap"
     ];
 
     brews = [
       "mas"
-      "postgresql"
-      #"yabai"
-      #"skhd"
+      "ruby"
+      "maestro"
+      "scrcpy"
+      "node"
+      "npm"
     ];
 
     casks = [
+      "spotify"
+      "bitwarden"
+      "mullvad-browser"
       "ghostty"
       "librewolf"
       "raycast"
       "intellij-idea"
       "vmware-fusion"
-      "proton-pass"
-      "proton-mail-bridge"
-      "proton-drive"
-      "protonvpn"
-      "proton-mail"
       "telegram"
       "arc"
       "brave-browser"
@@ -59,30 +57,40 @@
       "zed@preview"
       "utm"
       "gimp"
-      "spotify"
-      "zen-browser"
-      "audacity"
+      "firefox"
+      "firefox@developer-edition"
       "transmission"
-      "wireshark"
       "tailscale"
       "android-studio"
       "obs"
       "eloston-chromium"
       "postman"
-      "vlc"
-      "openvpn-connect"
-      "motrix"
-      "obsidian"
       "sequel-ace"
       "datagrip"
-      "mullvad-browser"
-      "orion"
       "cloudflare-warp"
-      "anytype"
-      "pycharm"
       "chatgpt"
       "rapidapi"
       "mongodb-compass"
+      "goland"
+      "orbstack"
+      "keka"
+      "localsend"
+      "notion"
+      "visual-studio-code"
+      "google-chrome"
+      "hiddenbar"
+      "neardrop"
+      "plex"
+      "libreoffice"
+      "pycharm"
+      "blip"
+      "keepassxc"
+      "cyberduck"
+      "thunderbird"
+      "cursor"
+      "windscribe"
+      "slack"
+      "trae"
     ];
   };
 }

@@ -1,19 +1,18 @@
 {pkgs, ...}: {
   system = {
     stateVersion = 6;
-    activationScripts.postUserActivation.text = ''
-      /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
-    '';
+    primaryUser = "me";
+    # activationScripts.postUserActivation.text = ''
+    #   /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+    # '';
 
     defaults = {
       menuExtraClock.IsAnalog = true;
 
       dock = {
-        autohide = true;
+        autohide = false;
         mru-spaces = false;
-        orientation = "bottom";
-        show-recents = false;
-        mineffect = "suck";
+        orientation = "right";
       };
 
       finder = {
@@ -81,8 +80,7 @@
       };
 
       loginwindow = {
-        GuestEnabled = false;
-        LoginwindowText = "n45.dev";
+        # GuestEnabled = false;
       };
     };
   };
