@@ -24,11 +24,8 @@
     wget
     fastfetch
     dust
-    podman
-    podman-compose
     ollama
     android-tools
-    scrcpy
     onefetch
     gh
     lua-language-server
@@ -45,6 +42,11 @@
     python312Packages.python-lsp-server
     python312Packages.jedi-language-server
     helix-gpt
+    go
+    gopls
+    golangci-lint-langserver
+    delve
+    rclone
   ];
 
   services = {
