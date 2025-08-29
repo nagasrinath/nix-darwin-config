@@ -3,14 +3,14 @@
     stateVersion = 6;
     primaryUser = "me";
     # activationScripts.postUserActivation.text = ''
-    #   /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+    # /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
     # '';
 
     defaults = {
       menuExtraClock.IsAnalog = true;
 
       dock = {
-        autohide = false;
+        autohide = true;
         mru-spaces = false;
         orientation = "right";
       };

@@ -20,7 +20,6 @@
     };
 
     taps = [
-      "homebrew/services"
       "nikitabobko/tap"
       "koekeishiya/formulae"
       "grishka/grishka"
@@ -30,15 +29,14 @@
     brews = [
       "mas"
       "ruby"
-      "maestro"
       "scrcpy"
       "node"
       "npm"
-      "1password-cli"
     ];
 
     casks = [
       "1password"
+      "1password-cli"
       "spotify"
       "bitwarden"
       "mullvad-browser"
@@ -46,7 +44,6 @@
       "librewolf"
       "raycast"
       "intellij-idea"
-      "vmware-fusion"
       "telegram"
       "arc"
       "brave-browser"
@@ -65,7 +62,6 @@
       "tailscale"
       "android-studio"
       "obs"
-      "eloston-chromium"
       "postman"
       "sequel-ace"
       "datagrip"
