@@ -34,6 +34,7 @@
       "scrcpy"
       "node"
       "npm"
+      "1password-cli"
     ];
 
     casks = [
@@ -92,6 +93,7 @@
       "windscribe"
       "slack"
       "trae"
+      "obscura-vpn"
     ];
   };
 }
