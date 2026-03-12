@@ -32,9 +32,18 @@
       "scrcpy"
       "node"
       "npm"
+      "postgrest"
+      "openjdk"
+      "npm"
     ];
 
     casks = [
+      "chatgpt"
+      "playcover-community"
+      "rustdesk"
+      "zen"
+      "windscribe"
+      "free-download-manager"
       "1password"
       "1password-cli"
       "spotify"
@@ -59,7 +68,6 @@
       "firefox"
       "firefox@developer-edition"
       "transmission"
-      "tailscale"
       "android-studio"
       "obs"
       "postman"
@@ -90,6 +98,12 @@
       "slack"
       "trae"
       "obscura-vpn"
+      "jetbrains-toolbox"
+      "yaak"
+      "iterm2"
+      "font-fantasque-sans-mono-nerd-font"
+      "skim"
+      "eclipse-ide"
     ];
   };
 }
