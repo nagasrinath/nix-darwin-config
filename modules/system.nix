@@ -20,7 +20,7 @@
         FXPreferredViewStyle = "clmv";
         ShowStatusBar = true;
         ShowPathbar = true;
-        # QuitMenuItem = true;
+        QuitMenuItem = true;
       };
 
       trackpad = {
