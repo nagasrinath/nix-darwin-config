@@ -17,6 +17,7 @@
     masApps = {
       "Whatsapp" = 310633997;
       "Davinci Resolve" = 571213070;
+      "Speediness" = 1596706466;
     };
 
     taps = [
@@ -41,6 +42,7 @@
       "chatgpt"
       "playcover-community"
       "rustdesk"
+      "bitwarden"
       "zen"
       "windscribe"
       "free-download-manager"

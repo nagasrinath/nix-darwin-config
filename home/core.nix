@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    mosh
     tokei
     zip
     xz
@@ -47,6 +48,7 @@
     golangci-lint-langserver
     delve
     rclone
+    nodejs_24
   ];
 
   services = {
