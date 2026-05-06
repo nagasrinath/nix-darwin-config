@@ -19,6 +19,7 @@
   };
 
   outputs = inputs @ {
+    self,
     nixpkgs,
     darwin,
     home-manager,
@@ -52,6 +53,11 @@
           home-manager.users.${username} = import ./home;
         }
       ];
+    };
+
+    # Add checks for formatting and system configuration
+    checks."${system}" = {
+      formatting = self.formatter."${system}";
     };
 
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
