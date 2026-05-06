@@ -24,6 +24,8 @@
       };
 
       trackpad = {
+        Clicking = true;
+        TrackpadThreeFingerDrag = true;
       };
 
       controlcenter = {
@@ -32,8 +34,25 @@
 
       NSGlobalDomain = {
         AppleInterfaceStyle = "Dark";
-        InitialKeyRepeat = 15;
+        ApplePressAndHoldEnabled = false;
+
+        # 120, 90, 60, 30, 15, 2
         KeyRepeat = 2;
+
+        # 120, 94, 68, 35, 25, 15
+        InitialKeyRepeat = 15;
+
+        "com.apple.mouse.tapBehavior" = 1;
+        "com.apple.sound.beep.volume" = 0.0;
+        "com.apple.sound.beep.feedback" = 0;
+
+        NSAutomaticCapitalizationEnabled = false;
+        NSAutomaticDashSubstitutionEnabled = false;
+        NSAutomaticPeriodSubstitutionEnabled = false;
+        NSAutomaticQuoteSubstitutionEnabled = false;
+        NSAutomaticSpellingCorrectionEnabled = false;
+        NSNavPanelExpandedStateForSaveMode = true;
+        NSNavPanelExpandedStateForSaveMode2 = true;
       };
 
       CustomUserPreferences = {
