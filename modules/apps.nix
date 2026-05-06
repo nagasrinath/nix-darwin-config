@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     just
-    git
   ];
   environment.variables.EDITOR = "nvim";
 
@@ -25,6 +24,7 @@
       "koekeishiya/formulae"
       "grishka/grishka"
       "mobile-dev-inc/tap"
+      "thusvill/livewallpaper"
     ];
 
     brews = [
@@ -35,77 +35,67 @@
       "npm"
       "postgrest"
       "openjdk"
-      "npm"
     ];
 
     casks = [
-      "chatgpt"
-      "playcover-community"
-      "rustdesk"
-      "bitwarden"
-      "zen"
-      "windscribe"
-      "free-download-manager"
-      "1password"
-      "1password-cli"
-      "spotify"
-      "bitwarden"
-      "mullvad-browser"
-      "ghostty"
-      "librewolf"
-      "raycast"
-      "intellij-idea"
-      "telegram"
+      # Browsers
       "arc"
       "brave-browser"
-      "tor-browser"
-      "iina"
-      "discord"
-      "signal"
-      "element"
-      "inkscape"
-      "zed@preview"
-      "utm"
-      "gimp"
       "firefox"
-      "firefox@developer-edition"
-      "transmission"
-      "android-studio"
-      "obs"
-      "postman"
-      "sequel-ace"
-      "datagrip"
-      "cloudflare-warp"
-      "chatgpt"
-      "rapidapi"
-      "mongodb-compass"
-      "goland"
-      "orbstack"
-      "keka"
-      "localsend"
-      "notion"
-      "visual-studio-code"
       "google-chrome"
-      "hiddenbar"
-      "neardrop"
-      "plex"
-      "libreoffice"
-      "pycharm"
-      "blip"
-      "keepassxc"
-      "cyberduck"
-      "thunderbird"
+      "tor-browser"
+
+      # Development
+      "android-studio"
       "cursor"
-      "windscribe"
-      "slack"
-      "trae"
-      "obscura-vpn"
-      "jetbrains-toolbox"
-      "yaak"
+      "datagrip"
+      "goland"
+      "intellij-idea"
       "iterm2"
+      "jetbrains-toolbox"
+      "mongodb-compass"
+      "orbstack"
+      "postman"
+      "pycharm"
+      "sequel-ace"
+      "visual-studio-code"
+      "zed"
+
+      # Communication
+      "discord"
+      "element"
+      "signal"
+      "slack"
+      "telegram"
+
+      # Productivity & Utilities
+      "1password"
+      "1password-cli"
+      "bitwarden"
+      "blip"
+      "chatgpt"
+      "cloudflare-warp"
+      "cyberduck"
+      "free-download-manager"
+      "keka"
+      "notion"
+      "raycast"
+      "windscribe"
+
+      # Media & Design
+      "gimp"
+      "iina"
+      "inkscape"
+      "livewallpaper"
+      "obs"
+      "spotify"
+
+      # System & Others
       "font-fantasque-sans-mono-nerd-font"
-      "skim"
-      "eclipse-ide"
+      "ghostty"
+      "playcover-community"
+      "transmission"
+      "utm"
     ];
   };
 }

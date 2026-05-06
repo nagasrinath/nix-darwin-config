@@ -6,6 +6,9 @@
     ./ghostty.nix
     ./yabai.nix
     ./helix.nix
+    ./git.nix
+    ./direnv.nix
+    ./nix-index.nix
   ];
 
   home = {
