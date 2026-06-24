@@ -10,21 +10,19 @@
     onActivation = {
       autoUpdate = true;
       upgrade = true;
-      cleanup = "zap";
+      cleanup = "none";
     };
 
     masApps = {
       "Whatsapp" = 310633997;
       "Davinci Resolve" = 571213070;
-      "Speediness" = 1596706466;
+      "Bear" = 1091189122;
     };
 
     taps = [
       "nikitabobko/tap"
-      "koekeishiya/formulae"
       "grishka/grishka"
       "mobile-dev-inc/tap"
-      "thusvill/livewallpaper"
     ];
 
     brews = [
@@ -35,63 +33,49 @@
       "npm"
       "postgrest"
       "openjdk"
+      "copilot"
+      "happy-coder"
     ];
 
     casks = [
       # Browsers
-      "arc"
       "brave-browser"
       "firefox"
       "google-chrome"
-      "tor-browser"
 
       # Development
-      "android-studio"
-      "cursor"
-      "datagrip"
-      "goland"
-      "intellij-idea"
-      "iterm2"
       "jetbrains-toolbox"
-      "mongodb-compass"
       "orbstack"
       "postman"
-      "pycharm"
-      "sequel-ace"
-      "visual-studio-code"
       "zed"
+      "claude-code"
+      "obsidian"
+      "flutter"
+      "claude"
 
       # Communication
       "discord"
-      "element"
-      "signal"
-      "slack"
       "telegram"
+      "signal"
 
       # Productivity & Utilities
       "1password"
       "1password-cli"
-      "bitwarden"
       "blip"
       "chatgpt"
-      "cloudflare-warp"
-      "cyberduck"
       "free-download-manager"
-      "keka"
-      "notion"
       "raycast"
       "windscribe"
 
       # Media & Design
       "gimp"
       "iina"
-      "inkscape"
-      "livewallpaper"
       "obs"
       "spotify"
 
       # System & Others
       "font-fantasque-sans-mono-nerd-font"
+      "font-iosevka-nerd-font"
       "ghostty"
       "playcover-community"
       "transmission"
