@@ -33,7 +33,7 @@
       window-padding-y = 10
       window-padding-balance = true
 
-      macos-titlebar-style = tabs
+      macos-titlebar-style = hidden
       macos-option-as-alt = true
 
       term = "xterm-256color"
