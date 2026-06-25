@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sudo darwin-rebuild *)",
+      "Bash(git -C ~/.config/nix diff --staged home/ghostty.nix)",
+      "Bash(git -C ~/.config/nix diff modules/apps.nix)",
+      "Bash(git -C ~/.config/nix add modules/apps.nix home/ghostty.nix)",
+      "Bash(git -C ~/.config/nix commit -m ' *)",
+      "Bash(git *)",
+      "Bash(nix-prefetch-url --unpack https://github.com/ahatem/IoskeleyMono/releases/download/v2.0.0/IoskeleyMono-NerdFont.zip)",
+      "Bash(nix-prefetch-url --unpack https://github.com/ahatem/IoskeleyMono/releases/download/v2.0.0/IoskeleyMono-Term-NerdFont.zip)",
+      "Bash(nix hash *)"
+    ]
+  }
+}
