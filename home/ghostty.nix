@@ -2,29 +2,11 @@
   home.file.ghostty = {
     target = ".config/ghostty/config";
     text = ''
-      foreground = #979eab
-      background = #282c34
-
-      palette = 0=#282c34
-      palette = 1=#e06c75
-      palette = 2=#98c379
-      palette = 3=#e5c07b
-      palette = 4=#61afef
-      palette = 5=#be5046
-      palette = 6=#56b6c2
-      palette = 7=#979eab
-      palette = 8=#393e48
-      palette = 9=#d19a66
-      palette = 10=#56b6c2
-      palette = 11=#e5c07b
-      palette = 12=#61afef
-      palette = 13=#be5046
-      palette = 14=#56b6c2
-      palette = 15=#abb2bf
+      theme = Gruvbox Dark Hard
 
       shell-integration = detect
 
-      font-family = "JetBrainsMono Nerd Font"
+      font-family = "IoskeleyMonoTerm Nerd Font"
       font-size = 15
 
       cursor-style = underline

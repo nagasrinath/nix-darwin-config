@@ -42,6 +42,7 @@
       "brave-browser"
       "firefox"
       "google-chrome"
+      "helium-browser"
 
       # Development
       "jetbrains-toolbox"
