@@ -18,6 +18,7 @@
         "diagnostics": false
       },
       "vim_mode": true,
+      "theme": "Gruvbox Dark Hard",
       "ui_font_size": 14,
       "buffer_font_size": 14,
       "buffer_font_family": "JetBrainsMono Nerd Font",
