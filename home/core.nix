@@ -49,6 +49,8 @@
     delve
     rclone
     nodejs_24
+    nodePackages.typescript-language-server
+    jdt-language-server
   ];
 
   services = {
@@ -61,7 +63,7 @@
     neovim = {
       enable = true;
       defaultEditor = true;
-      # vimAlias = true;
+      vimAlias = true;
     };
 
     eza = {
@@ -84,7 +86,7 @@
       enable = true;
       enableFishIntegration = true;
       settings = {
-        manager = {
+        mgr = {
           show_hidden = true;
           sort_dir_first = true;
         };
@@ -99,7 +101,7 @@
     bat = {
       enable = true;
       config = {
-        theme = "OneDark";
+        theme = "gruvbox-dark";
       };
     };
   };

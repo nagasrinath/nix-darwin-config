@@ -17,6 +17,7 @@
       "Whatsapp" = 310633997;
       "Davinci Resolve" = 571213070;
       "Bear" = 1091189122;
+      "WireGuard" = 1451685025;
     };
 
     taps = [
@@ -35,6 +36,7 @@
       "openjdk"
       "copilot"
       "happy-coder"
+      "container"
     ];
 
     casks = [
@@ -43,19 +45,25 @@
       "firefox"
       "google-chrome"
       "helium-browser"
+      "tor-browser"
 
       # Development
+      "cursor"
       "jetbrains-toolbox"
+
       "orbstack"
       "postman"
+      "sequel-ace"
+      "supacode"
+      "visual-studio-code"
       "zed"
       "claude-code"
       "obsidian"
-      "flutter"
       "claude"
 
       # Communication
       "discord"
+      "linear"
       "telegram"
       "signal"
 
@@ -65,7 +73,10 @@
       "blip"
       "chatgpt"
       "free-download-manager"
+
       "raycast"
+      "tailscale-app"
+      "todoist-app"
       "windscribe"
 
       # Media & Design
