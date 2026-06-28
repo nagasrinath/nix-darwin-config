@@ -79,8 +79,8 @@
         };
         "com.apple.WindowManager" = {
           EnableStandardClickToShowDesktop = 0;
-          StandardHideDesktopIcons = 0;
-          HideDesktop = 0;
+          StandardHideDesktopIcons = 1;
+          HideDesktop = 1;
           StageManagerHideWidgets = 0;
           StandardHideWidgets = 0;
         };

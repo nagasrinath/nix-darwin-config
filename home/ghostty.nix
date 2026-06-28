@@ -11,8 +11,8 @@
 
       cursor-style = underline
 
-      window-padding-x = 10
-      window-padding-y = 10
+      window-padding-x = 15
+      window-padding-y = 15
       window-padding-balance = true
 
       macos-titlebar-style = hidden
