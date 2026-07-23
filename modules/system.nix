@@ -2,9 +2,16 @@
   system = {
     stateVersion = 6;
     primaryUser = "me";
-    # activationScripts.postUserActivation.text = ''
-    # /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
-    # '';
+    activationScripts.trackpadGestures.text = ''
+      sudo -u me /usr/bin/defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 1
+      sudo -u me /usr/bin/defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 1
+      sudo -u me /usr/bin/defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerHorizSwipeGesture -int 0
+      sudo -u me /usr/bin/defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture -int 0
+      sudo -u me /usr/bin/defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 1
+      sudo -u me /usr/bin/defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 1
+      sudo -u me /usr/bin/defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerHorizSwipeGesture -int 0
+      sudo -u me /usr/bin/defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture -int 0
+    '';
 
     defaults = {
       menuExtraClock.IsAnalog = true;
@@ -12,7 +19,7 @@
       dock = {
         autohide = true;
         mru-spaces = false;
-        orientation = "bottom";
+        orientation = "right";
       };
 
       finder = {
@@ -24,7 +31,7 @@
       };
 
       trackpad = {
-        Clicking = true;
+        Clicking = false;
         TrackpadThreeFingerDrag = true;
       };
 
