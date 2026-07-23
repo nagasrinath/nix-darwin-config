@@ -2,7 +2,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "gruvbox_dark_hard";
+      theme = "catppuccin_mocha";
       editor = {
         bufferline = "multiple";
         cursorline = true;
@@ -50,6 +50,11 @@
         C-S-tab = ":buffer-next";
         A-w = ":buffer-close";
       };
+    };
+
+    themes.gruvbox_transparent = {
+      inherits = "gruvbox_dark_hard";
+      "ui.background" = {};
     };
 
     languages = {

@@ -51,6 +51,7 @@
     nodejs_24
     nodePackages.typescript-language-server
     jdt-language-server
+    leetcode-cli
   ];
 
   services = {

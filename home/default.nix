@@ -4,6 +4,7 @@
     ./core.nix
     ./starship.nix
     ./ghostty.nix
+    ./terminal.nix
     ./yabai.nix
     ./helix.nix
     ./git.nix

@@ -15,7 +15,6 @@
 
     masApps = {
       "Whatsapp" = 310633997;
-      "Davinci Resolve" = 571213070;
       "Bear" = 1091189122;
       "WireGuard" = 1451685025;
     };
@@ -37,10 +36,13 @@
       "copilot"
       "happy-coder"
       "container"
+      "fabric-ai"
+      "trash"
     ];
 
     casks = [
       # Browsers
+      "arc"
       "brave-browser"
       "firefox"
       "google-chrome"
@@ -64,10 +66,13 @@
       # Communication
       "discord"
       "linear"
+      "microsoft-teams"
       "telegram"
       "signal"
 
       # Productivity & Utilities
+      "dropbox"
+      "standard-notes"
       "1password"
       "1password-cli"
       "blip"
@@ -77,7 +82,7 @@
       "raycast"
       "tailscale-app"
       "todoist-app"
-      "windscribe"
+      "nordvpn"
 
       # Media & Design
       "gimp"
