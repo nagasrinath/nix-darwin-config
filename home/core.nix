@@ -52,6 +52,8 @@
     nodePackages.typescript-language-server
     jdt-language-server
     leetcode-cli
+    awscli2
+    croc
   ];
 
   services = {
@@ -61,12 +63,6 @@
   };
 
   programs = {
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      vimAlias = true;
-    };
-
     eza = {
       enable = true;
       git = true;

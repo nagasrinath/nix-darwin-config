@@ -28,7 +28,7 @@
     username = "me";
     useremail = "nagasrinath@proton.me";
     system = "aarch64-darwin";
-    hostname = "Nagas-MacBook-Air";
+    hostname = "mac";
 
     specialArgs =
       inputs
