@@ -17,6 +17,7 @@
       "Whatsapp" = 310633997;
       "Bear" = 1091189122;
       "WireGuard" = 1451685025;
+      "Displaperture" = 1543920362;
     };
 
     taps = [
@@ -37,6 +38,7 @@
       "happy-coder"
       "container"
       "fabric-ai"
+      "herdr"
       "trash"
     ];
 
@@ -45,6 +47,7 @@
       "arc"
       "brave-browser"
       "firefox"
+      "firefox@nightly"
       "google-chrome"
       "helium-browser"
       "tor-browser"
@@ -93,6 +96,7 @@
       # System & Others
       "font-fantasque-sans-mono-nerd-font"
       "font-iosevka-nerd-font"
+      "font-monocraft-nerd-font"
       "ghostty"
       "playcover-community"
       "transmission"
