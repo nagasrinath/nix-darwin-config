@@ -7,6 +7,7 @@
     shellAliases = {
       "..." = "cd ../..";
       "ff" = "fastfetch";
+      "c" = "clear";
 
       # Nix aliases
       "nd" = "nix develop";

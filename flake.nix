@@ -20,7 +20,7 @@
 
   outputs = inputs @ {
     self,
-    nixpkgs,
+    nixpkgs-darwin,
     darwin,
     home-manager,
     ...
@@ -44,7 +44,6 @@
         ./modules/apps.nix
         ./modules/fonts.nix
         ./modules/host-users.nix
-
         # home manager
         home-manager.darwinModules.home-manager
         {
@@ -59,9 +58,12 @@
 
     # Add checks for formatting and system configuration
     checks."${system}" = {
-      formatting = self.formatter."${system}";
+      formatting = nixpkgs-darwin.legacyPackages.${system}.runCommand "check-formatting" {} ''
+        ${self.formatter.${system}}/bin/alejandra --check ${self}
+        touch $out
+      '';
     };
 
-    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+    formatter.${system} = nixpkgs-darwin.legacyPackages.${system}.alejandra;
   };
 }

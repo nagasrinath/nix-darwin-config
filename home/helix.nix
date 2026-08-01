@@ -2,7 +2,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "catppuccin_mocha";
+      theme = "gruvbox_dark_hard";
       editor = {
         bufferline = "multiple";
         cursorline = true;

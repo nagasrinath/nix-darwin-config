@@ -17,13 +17,14 @@
       "Whatsapp" = 310633997;
       "Bear" = 1091189122;
       "WireGuard" = 1451685025;
-      "Displaperture" = 1543920362;
+      "Windows App" = 1295203466;
     };
 
     taps = [
       "nikitabobko/tap"
       "grishka/grishka"
       "mobile-dev-inc/tap"
+      "FelixKratz/formulae"
     ];
 
     brews = [
@@ -40,17 +41,18 @@
       "fabric-ai"
       "herdr"
       "trash"
+      "borders"
     ];
 
     casks = [
       # Browsers
-      "arc"
       "brave-browser"
       "firefox"
       "firefox@nightly"
       "google-chrome"
       "helium-browser"
       "tor-browser"
+      "zen-browser"
 
       # Development
       "cursor"
@@ -67,15 +69,13 @@
       "claude"
 
       # Communication
+      "superhuman"
       "discord"
-      "linear"
       "microsoft-teams"
       "telegram"
       "signal"
 
       # Productivity & Utilities
-      "dropbox"
-      "standard-notes"
       "1password"
       "1password-cli"
       "blip"
@@ -83,9 +83,10 @@
       "free-download-manager"
 
       "raycast"
+      "alfred"
       "tailscale-app"
-      "todoist-app"
       "nordvpn"
+      "obscura-vpn"
 
       # Media & Design
       "gimp"
@@ -94,13 +95,20 @@
       "spotify"
 
       # System & Others
+      "sf-symbols"
+      "font-sf-pro"
+      "karabiner-elements"
+      "nikitabobko/tap/aerospace"
       "font-fantasque-sans-mono-nerd-font"
       "font-iosevka-nerd-font"
       "font-monocraft-nerd-font"
       "ghostty"
-      "playcover-community"
+      "kitty"
+      "alacritty"
       "transmission"
       "utm"
+      "anydesk"
+      "xonotic"
     ];
   };
 }
