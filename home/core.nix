@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   home.packages = with pkgs; [
     mosh
     tokei
@@ -52,9 +56,15 @@
     nodePackages.typescript-language-server
     jdt-language-server
     leetcode-cli
-    awscli2
     croc
   ];
+
+  home.activation.installPi = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    export PATH="/opt/homebrew/bin:$PATH"
+    if ! npm list -g @earendil-works/pi-coding-agent >/dev/null 2>&1; then
+      npm install -g --ignore-scripts @earendil-works/pi-coding-agent
+    fi
+  '';
 
   services = {
     ollama = {

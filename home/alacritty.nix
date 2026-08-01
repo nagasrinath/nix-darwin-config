@@ -1,0 +1,53 @@
+{...}: {
+  home.file.".config/alacritty/alacritty.toml".text = ''
+    [env]
+    TERM = "xterm-256color"
+
+    [font]
+    size = 15.0
+
+    [font.normal]
+    family = "IoskeleyMonoTerm Nerd Font"
+
+    [cursor]
+    style = { shape = "Underline" }
+
+    [window]
+    padding = { x = 10, y = 10 }
+    decorations = "Buttonless"
+    option_as_alt = "Both"
+
+    [colors.primary]
+    background = "#1d2021"
+    foreground = "#ebdbb2"
+
+    [colors.cursor]
+    text   = "#1d2021"
+    cursor = "#ebdbb2"
+
+    [colors.normal]
+    black   = "#282828"
+    red     = "#cc241d"
+    green   = "#98971a"
+    yellow  = "#d79921"
+    blue    = "#458588"
+    magenta = "#b16286"
+    cyan    = "#689d6a"
+    white   = "#a89984"
+
+    [colors.bright]
+    black   = "#928374"
+    red     = "#fb4934"
+    green   = "#b8bb26"
+    yellow  = "#fabd2f"
+    blue    = "#83a598"
+    magenta = "#d3869b"
+    cyan    = "#8ec07c"
+    white   = "#ebdbb2"
+
+    [[keyboard.bindings]]
+    key = "N"
+    mods = "Control"
+    action = "CreateNewWindow"
+  '';
+}

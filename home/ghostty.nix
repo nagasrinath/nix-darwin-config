@@ -2,12 +2,12 @@
   home.file.ghostty = {
     target = ".config/ghostty/config";
     text = ''
-      theme = Catppuccin Mocha
+      theme = Gruvbox Dark Hard
 
       shell-integration = detect
 
-      font-family = "Monocraft"
-      font-size = 13
+      font-family = "IoskeleyMonoTerm Nerd Font"
+      font-size = 15
 
       cursor-style = underline
 
@@ -16,9 +16,30 @@
       window-padding-balance = true
 
       macos-titlebar-style = hidden
+
       macos-option-as-alt = true
 
       term = "xterm-256color"
+
+      window-save-state = always
+
+      keybind = ctrl+n=new_window
+
+      keybind = ctrl+h=goto_split:left
+      keybind = ctrl+j=goto_split:bottom
+      keybind = ctrl+k=goto_split:top
+      keybind = ctrl+l=goto_split:right
+
+      keybind = ctrl+a>h=new_split:left
+      keybind = ctrl+a>j=new_split:down
+      keybind = ctrl+a>k=new_split:up
+      keybind = ctrl+a>l=new_split:right
+      keybind = ctrl+a>f=toggle_split_zoom
+
+      keybind = ctrl+a>n=next_tab
+      keybind = ctrl+a>p=previous_tab
+
+      keybind = super+r=reload_config
     '';
   };
 }

@@ -4,12 +4,15 @@
     ./core.nix
     ./starship.nix
     ./ghostty.nix
-    ./yabai.nix
     ./helix.nix
     ./git.nix
     ./direnv.nix
     ./nix-index.nix
     ./neovim.nix
+    ./borders.nix
+    ./aerospace.nix
+    ./kitty.nix
+    ./alacritty.nix
   ];
 
   home = {

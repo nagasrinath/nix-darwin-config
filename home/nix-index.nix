@@ -4,5 +4,5 @@
     enableFishIntegration = true;
   };
 
-  home.packages = [ pkgs.comma ];
+  home.packages = [pkgs.comma];
 }
