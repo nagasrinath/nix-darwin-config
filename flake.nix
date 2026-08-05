@@ -30,10 +30,15 @@
     system = "aarch64-darwin";
     hostname = "mac";
 
+    # Window management mode. Set to either "tiling" or "normal":
+    #   tiling -> aerospace + sketchybar enabled, dock hidden (long delay), menu bar always hidden
+    #   normal -> aerospace + sketchybar disabled, stock macOS dock, menu bar hidden only in fullscreen
+    wmMode = "normal";
+
     specialArgs =
       inputs
       // {
-        inherit username useremail hostname;
+        inherit username useremail hostname wmMode;
       };
   in {
     darwinConfigurations."${hostname}" = darwin.lib.darwinSystem {

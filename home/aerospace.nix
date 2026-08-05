@@ -15,6 +15,10 @@
     on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     automatically-unhide-macos-hidden-apps = false
 
+    exec-on-workspace-change = ['/bin/bash', '-c',
+      '/opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+    ]
+
     persistent-workspaces = ["1", "2", "3", "4", "5"]
 
     focus-follows-mouse.enabled = true

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  wmMode,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     just
   ];
@@ -42,6 +46,16 @@
       "herdr"
       "trash"
       "borders"
+      "mole"
+      (
+        if wmMode == "tiling"
+        then {
+          name = "sketchybar";
+          start_service = true;
+          restart_service = "changed";
+        }
+        else "sketchybar"
+      )
     ];
 
     casks = [
