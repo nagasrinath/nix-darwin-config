@@ -1,19 +1,29 @@
-{username, ...}: {
-  imports = [
-    ./shell.nix
-    ./core.nix
-    ./starship.nix
-    ./ghostty.nix
-    ./helix.nix
-    ./git.nix
-    ./direnv.nix
-    ./nix-index.nix
-    ./neovim.nix
-    ./borders.nix
-    ./aerospace.nix
-    ./kitty.nix
-    ./alacritty.nix
-  ];
+{
+  username,
+  wmMode,
+  lib,
+  ...
+}: {
+  imports =
+    [
+      ./shell.nix
+      ./core.nix
+      ./starship.nix
+      ./ghostty.nix
+      ./helix.nix
+      ./git.nix
+      ./direnv.nix
+      ./nix-index.nix
+      ./neovim.nix
+      ./borders.nix
+      ./kitty.nix
+      ./alacritty.nix
+      ./wm-mode.nix
+    ]
+    ++ lib.optionals (wmMode == "tiling") [
+      ./aerospace.nix
+      ./sketchybar.nix
+    ];
 
   home = {
     username = username;

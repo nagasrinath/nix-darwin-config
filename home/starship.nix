@@ -16,7 +16,7 @@
         vimcmd_symbol = "[󰁍](bold green)";
       };
 
-      aws.symbol = " ";
+      aws.disabled = true;
       buf.symbol = " ";
       bun.symbol = " ";
       c.symbol = " ";

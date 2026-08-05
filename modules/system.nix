@@ -1,8 +1,11 @@
 {
   pkgs,
   username,
+  wmMode,
   ...
-}: {
+}: let
+  isTiling = wmMode == "tiling";
+in {
   system = {
     stateVersion = 6;
     primaryUser = username;
@@ -21,7 +24,12 @@
       menuExtraClock.IsAnalog = true;
 
       dock = {
-        autohide = true;
+        # tiling: hidden behind a very long show-delay (effectively disabled)
+        # normal: stock macOS autohide-on-hover behaviour
+        autohide =
+          if isTiling
+          then true
+          else false;
         mru-spaces = false;
         orientation = "bottom";
       };
@@ -57,7 +65,9 @@
         "com.apple.sound.beep.volume" = 0.0;
         "com.apple.sound.beep.feedback" = 0;
 
-        _HIHideMenuBar = true;
+        # menu bar auto-hide: tiling -> "Always", normal -> "In Full Screen Only"
+        # (see https://developer.apple.com/documentation/devicemanagement/globalpreferences)
+        _HIHideMenuBar = isTiling;
 
         NSAutomaticCapitalizationEnabled = false;
         NSAutomaticDashSubstitutionEnabled = false;
@@ -74,6 +84,7 @@
         };
         NSGlobalDomain = {
           WebKitDeveloperExtras = true;
+          AppleMenuBarVisibleInFullscreen = false;
         };
         "com.apple.finder" = {
           ShowExternalHardDrivesOnDesktop = true;
@@ -91,7 +102,11 @@
           "spans-displays" = 0;
         };
         "com.apple.dock" = {
-          autohide-delay = 0.0;
+          # tiling: ~16.6 minutes, i.e. never shows in practice; normal: stock delay
+          autohide-delay =
+            if isTiling
+            then 1000.0
+            else 0.5;
         };
         "com.apple.WindowManager" = {
           EnableStandardClickToShowDesktop = 0;
