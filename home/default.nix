@@ -1,6 +1,7 @@
 {
   username,
   wmMode,
+  wmEngine,
   lib,
   ...
 }: {
@@ -20,10 +21,14 @@
       ./alacritty.nix
       ./wm-mode.nix
     ]
-    ++ lib.optionals (wmMode == "tiling") [
-      ./aerospace.nix
-      ./sketchybar.nix
-    ];
+    ++ lib.optionals (wmMode == "tiling") (
+      [./sketchybar.nix]
+      ++ (
+        if wmEngine == "yabai"
+        then [./yabai.nix]
+        else [./aerospace.nix]
+      )
+    );
 
   home = {
     username = username;
