@@ -1,8 +1,11 @@
 {
   pkgs,
   wmMode,
+  wmEngine,
   ...
-}: {
+}: let
+  isYabaiActive = wmMode == "tiling" && wmEngine == "yabai";
+in {
   environment.systemPackages = with pkgs; [
     just
   ];
@@ -29,6 +32,7 @@
       "grishka/grishka"
       "mobile-dev-inc/tap"
       "FelixKratz/formulae"
+      "koekeishiya/formulae"
     ];
 
     brews = [
@@ -56,6 +60,24 @@
         }
         else "sketchybar"
       )
+      (
+        if isYabaiActive
+        then {
+          name = "yabai";
+          start_service = true;
+          restart_service = "changed";
+        }
+        else "yabai"
+      )
+      (
+        if isYabaiActive
+        then {
+          name = "skhd";
+          start_service = true;
+          restart_service = "changed";
+        }
+        else "skhd"
+      )
     ];
 
     casks = [
@@ -73,6 +95,7 @@
       "jetbrains-toolbox"
 
       "orbstack"
+      "postico"
       "postman"
       "sequel-ace"
       "supacode"
@@ -94,6 +117,7 @@
       "1password-cli"
       "blip"
       "chatgpt"
+      "google-gemini"
       "free-download-manager"
 
       "raycast"
@@ -122,6 +146,7 @@
       "transmission"
       "utm"
       "anydesk"
+      "steam"
       "xonotic"
     ];
   };

@@ -1,4 +1,26 @@
-{lib, ...}: {
+{
+  lib,
+  wmEngine,
+  ...
+}: let
+  # Custom sketchybar event that either engine's WM-change hook triggers
+  # (aerospace's exec-on-workspace-change / yabai's space_changed signal).
+  workspaceChangeEvent = "${wmEngine}_workspace_change";
+
+  # Command to switch to workspace/space $ws, used by the spaces item's
+  # click_script.
+  focusWorkspaceCmd =
+    if wmEngine == "yabai"
+    then "yabai -m space --focus"
+    else "aerospace workspace";
+
+  # Fallback command to query the currently focused workspace/space, used
+  # by the spaces plugin when FOCUSED_WORKSPACE wasn't passed by the event.
+  queryFocusedWorkspaceCmd =
+    if wmEngine == "yabai"
+    then ''yabai -m query --spaces --space | grep -o '"index":[0-9]*' | grep -o '[0-9]*' ''
+    else "aerospace list-workspaces --focused";
+in {
   home.activation.downloadSketchybarFont = lib.hm.dag.entryAfter ["writeBoundary"] ''
     if [ ! -f "$HOME/Library/Fonts/sketchybar-app-font.ttf" ]; then
       /usr/bin/curl -L \
@@ -51,7 +73,7 @@
                            icon.padding_left=10               \
                            icon.padding_right=4
 
-      sketchybar --add event aerospace_workspace_change
+      sketchybar --add event ${workspaceChangeEvent}
 
       source $ITEM_DIR/spaces.sh
       source $ITEM_DIR/front_app.sh
@@ -80,9 +102,9 @@
                                    icon.padding_right=8                     \
                                    padding_left=2                           \
                                    padding_right=2                          \
-                                   click_script="aerospace workspace $ws"   \
+                                   click_script="${focusWorkspaceCmd} $ws" \
                                    script="$PLUGIN_DIR/space.sh"            \
-                   --subscribe space.$ws aerospace_workspace_change
+                   --subscribe space.$ws ${workspaceChangeEvent}
       done
     '';
   };
@@ -171,7 +193,7 @@
       #!/bin/sh
       source "$CONFIG_DIR/colors.sh"
       WS="''${NAME#space.}"
-      CURRENT="''${FOCUSED_WORKSPACE:-$(aerospace list-workspaces --focused 2>/dev/null)}"
+      CURRENT="''${FOCUSED_WORKSPACE:-$(${queryFocusedWorkspaceCmd} 2>/dev/null)}"
       if [ "$CURRENT" = "$WS" ]; then
         sketchybar --set $NAME background.drawing=on       \
                                background.color=0xffFFFFFF  \
