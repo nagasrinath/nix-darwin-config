@@ -1,0 +1,81 @@
+#!/bin/bash
+function icon_map() {
+  case "$1" in
+  "Ghostty") icon_result=":terminal:" ;;
+  "Alacritty"|"Hyper"|"iTerm2"|"kitty"|"Terminal"|"WezTerm") icon_result=":terminal:" ;;
+  "Arc") icon_result=":arc:" ;;
+  "Brave Browser") icon_result=":brave_browser:" ;;
+  "Firefox"|"Firefox Nightly") icon_result=":firefox:" ;;
+  "Google Chrome"|"Chromium") icon_result=":google_chrome:" ;;
+  "Safari") icon_result=":safari:" ;;
+  "Tor Browser") icon_result=":tor_browser:" ;;
+  "Cursor"|"Code"|"Code - Insiders") icon_result=":code:" ;;
+  "Zed") icon_result=":zed:" ;;
+  "Neovide"|"MacVim"|"Vim"|"VimR") icon_result=":vim:" ;;
+  "IntelliJ IDEA") icon_result=":idea:" ;;
+  "PyCharm") icon_result=":pycharm:" ;;
+  "WebStorm") icon_result=":web_storm:" ;;
+  "Android Studio") icon_result=":android_studio:" ;;
+  "Xcode") icon_result=":xcode:" ;;
+  "Obsidian") icon_result=":obsidian:" ;;
+  "Notion") icon_result=":notion:" ;;
+  "Bear") icon_result=":bear:" ;;
+  "Notes") icon_result=":notes:" ;;
+  "Discord"|"Discord Canary") icon_result=":discord:" ;;
+  "Telegram") icon_result=":telegram:" ;;
+  "Signal") icon_result=":signal:" ;;
+  "WhatsApp") icon_result=":whats_app:" ;;
+  "Microsoft Teams") icon_result=":microsoft_teams:" ;;
+  "Slack") icon_result=":slack:" ;;
+  "Spotify") icon_result=":spotify:" ;;
+  "Music") icon_result=":music:" ;;
+  "OBS") icon_result=":obsstudio:" ;;
+  "IINA") icon_result=":default:" ;;
+  "VLC") icon_result=":vlc:" ;;
+  "Finder") icon_result=":finder:" ;;
+  "System Preferences"|"System Settings") icon_result=":gear:" ;;
+  "1Password") icon_result=":one_password:" ;;
+  "Bitwarden") icon_result=":bit_warden:" ;;
+  "Docker"|"Docker Desktop") icon_result=":docker:" ;;
+  "OrbStack") icon_result=":docker:" ;;
+  "Postman") icon_result=":default:" ;;
+  "Sequel Ace") icon_result=":sequel_ace:" ;;
+  "ChatGPT") icon_result=":default:" ;;
+  "Calendar"|"Fantastical") icon_result=":calendar:" ;;
+  "Mail"|"Superhuman") icon_result=":mail:" ;;
+  "Preview") icon_result=":pdf:" ;;
+  "Raycast") icon_result=":spotlight:" ;;
+  "GitHub Desktop") icon_result=":git_hub:" ;;
+  "Figma") icon_result=":figma:" ;;
+  "Blender") icon_result=":blender:" ;;
+  "Canary Mail"|"HEY"|"Mailspring"|"MailMate") icon_result=":mail:" ;;
+  "Messages") icon_result=":messages:" ;;
+  "FaceTime") icon_result=":face_time:" ;;
+  "Reminders") icon_result=":reminders:" ;;
+  "App Store") icon_result=":app_store:" ;;
+  "Skype") icon_result=":skype:" ;;
+  "Zoom"|"zoom.us") icon_result=":zoom:" ;;
+  "Microsoft Word") icon_result=":microsoft_word:" ;;
+  "Microsoft Excel") icon_result=":microsoft_excel:" ;;
+  "Microsoft PowerPoint") icon_result=":microsoft_power_point:" ;;
+  "Microsoft Edge") icon_result=":microsoft_edge:" ;;
+  "Affinity Photo") icon_result=":affinity_photo:" ;;
+  "Affinity Designer") icon_result=":affinity_designer:" ;;
+  "Sketch") icon_result=":sketch:" ;;
+  "Keynote") icon_result=":keynote:" ;;
+  "Pages") icon_result=":pages:" ;;
+  "Numbers") icon_result=":numbers:" ;;
+  "Todoist") icon_result=":todoist:" ;;
+  "Trello") icon_result=":trello:" ;;
+  "Linear") icon_result=":linear:" ;;
+  "ClickUp") icon_result=":click_up:" ;;
+  "Emacs") icon_result=":emacs:" ;;
+  "Atom") icon_result=":atom:" ;;
+  "Sublime Text") icon_result=":sublime_text:" ;;
+  "Warp") icon_result=":warp:" ;;
+  "Default") icon_result=":default:" ;;
+  *) icon_result=":default:" ;;
+  esac
+}
+icon_map "$1"
+echo "$icon_result"

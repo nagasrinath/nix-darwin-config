@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  gruvboxTerminal = pkgs.runCommand "gruvbox-dark-hard.terminal" {nativeBuildInputs = [pkgs.python3];} ''
+  nordTerminal = pkgs.runCommand "nord.terminal" {nativeBuildInputs = [pkgs.python3];} ''
         cat > gen.py << 'EOF'
     import plistlib, sys
 
@@ -20,30 +20,30 @@
         }, fmt=plistlib.FMT_BINARY)
 
     profile = {
-        "name": "Gruvbox Dark Hard",
+        "name": "Nord",
         "type": "Window Settings",
         "ProfileCurrentVersion":      2.07,
-        "BackgroundColor":            nscolor(0.07059, 0.06667, 0.06275),
-        "TextColor":                  nscolor(0.85882, 0.83137, 0.76078),
-        "BoldTextColor":              nscolor(0.92157, 0.85882, 0.69804),
-        "SelectionColor":             nscolor(0.23922, 0.21961, 0.18824),
-        "CursorColor":                nscolor(0.85882, 0.83137, 0.76078),
-        "ANSIBlackColor":             nscolor(0.15686, 0.14902, 0.13333),
-        "ANSIRedColor":               nscolor(0.80000, 0.14118, 0.11373),
-        "ANSIGreenColor":             nscolor(0.59608, 0.59216, 0.10196),
-        "ANSIYellowColor":            nscolor(0.84314, 0.60000, 0.12941),
-        "ANSIBlueColor":              nscolor(0.27059, 0.52157, 0.53333),
-        "ANSIMagentaColor":           nscolor(0.69412, 0.38431, 0.52549),
-        "ANSICyanColor":              nscolor(0.40784, 0.61569, 0.41569),
-        "ANSIWhiteColor":             nscolor(0.66275, 0.60000, 0.51765),
-        "ANSIBrightBlackColor":       nscolor(0.57255, 0.51373, 0.45490),
-        "ANSIBrightRedColor":         nscolor(0.98431, 0.28627, 0.20000),
-        "ANSIBrightGreenColor":       nscolor(0.72157, 0.73333, 0.14902),
-        "ANSIBrightYellowColor":      nscolor(0.98039, 0.74118, 0.18431),
-        "ANSIBrightBlueColor":        nscolor(0.51373, 0.64706, 0.59608),
-        "ANSIBrightMagentaColor":     nscolor(0.82745, 0.52549, 0.60784),
-        "ANSIBrightCyanColor":        nscolor(0.55686, 0.75294, 0.48627),
-        "ANSIBrightWhiteColor":       nscolor(0.92157, 0.85882, 0.69804),
+        "BackgroundColor":            nscolor(0.18039, 0.20392, 0.25098),
+        "TextColor":                  nscolor(0.84706, 0.87059, 0.91373),
+        "BoldTextColor":              nscolor(0.92549, 0.93725, 0.95686),
+        "SelectionColor":             nscolor(0.26275, 0.29804, 0.36863),
+        "CursorColor":                nscolor(0.84706, 0.87059, 0.91373),
+        "ANSIBlackColor":             nscolor(0.23137, 0.25882, 0.32157),
+        "ANSIRedColor":               nscolor(0.74902, 0.38039, 0.41569),
+        "ANSIGreenColor":             nscolor(0.63922, 0.74510, 0.54902),
+        "ANSIYellowColor":            nscolor(0.92157, 0.79608, 0.54510),
+        "ANSIBlueColor":              nscolor(0.50588, 0.63137, 0.75686),
+        "ANSIMagentaColor":           nscolor(0.70588, 0.55686, 0.67843),
+        "ANSICyanColor":              nscolor(0.53333, 0.75294, 0.81569),
+        "ANSIWhiteColor":             nscolor(0.89804, 0.91373, 0.94118),
+        "ANSIBrightBlackColor":       nscolor(0.29804, 0.33725, 0.41569),
+        "ANSIBrightRedColor":         nscolor(0.74902, 0.38039, 0.41569),
+        "ANSIBrightGreenColor":       nscolor(0.63922, 0.74510, 0.54902),
+        "ANSIBrightYellowColor":      nscolor(0.92157, 0.79608, 0.54510),
+        "ANSIBrightBlueColor":        nscolor(0.50588, 0.63137, 0.75686),
+        "ANSIBrightMagentaColor":     nscolor(0.70588, 0.55686, 0.67843),
+        "ANSIBrightCyanColor":        nscolor(0.56078, 0.73725, 0.73333),
+        "ANSIBrightWhiteColor":       nscolor(0.92549, 0.93725, 0.95686),
         "columnCount":                220,
         "rowCount":                   50,
     }
@@ -54,14 +54,14 @@
         python3 gen.py "$out"
   '';
 in {
-  home.file.gruvboxTerminal = {
-    target = "Library/Application Support/gruvbox-dark-hard.terminal";
-    source = gruvboxTerminal;
+  home.file.nordTerminal = {
+    target = "Library/Application Support/nord.terminal";
+    source = nordTerminal;
   };
 
-  home.activation.importGruvboxTerminal = ''
-    /usr/bin/open "$HOME/Library/Application Support/gruvbox-dark-hard.terminal" 2>/dev/null || true
-    /usr/bin/defaults write com.apple.Terminal "Default Window Settings" -string "Gruvbox Dark Hard"
-    /usr/bin/defaults write com.apple.Terminal "Startup Window Settings" -string "Gruvbox Dark Hard"
+  home.activation.importNordTerminal = ''
+    /usr/bin/open "$HOME/Library/Application Support/nord.terminal" 2>/dev/null || true
+    /usr/bin/defaults write com.apple.Terminal "Default Window Settings" -string "Nord"
+    /usr/bin/defaults write com.apple.Terminal "Startup Window Settings" -string "Nord"
   '';
 }

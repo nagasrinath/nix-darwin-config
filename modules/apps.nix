@@ -1,11 +1,8 @@
 {
   pkgs,
   wmMode,
-  wmEngine,
   ...
-}: let
-  isYabaiActive = wmMode == "tiling" && wmEngine == "yabai";
-in {
+}: {
   environment.systemPackages = with pkgs; [
     just
   ];
@@ -32,7 +29,7 @@ in {
       "grishka/grishka"
       "mobile-dev-inc/tap"
       "FelixKratz/formulae"
-      "koekeishiya/formulae"
+      "asmvik/formulae" # formerly koekeishiya/formulae (yabai/skhd author's tap, transferred)
     ];
 
     brews = [
@@ -60,24 +57,14 @@ in {
         }
         else "sketchybar"
       )
-      (
-        if isYabaiActive
-        then {
-          name = "yabai";
-          start_service = true;
-          restart_service = "changed";
-        }
-        else "yabai"
-      )
-      (
-        if isYabaiActive
-        then {
-          name = "skhd";
-          start_service = true;
-          restart_service = "changed";
-        }
-        else "skhd"
-      )
+      # ponytail: skhd's formula doesn't implement `brew services` (no
+      # plist/service block) - it self-manages launchd via `--start-service`,
+      # wired up in home/wm-mode.nix's activation script. yabai itself is
+      # NOT installed from here - see home/yabai.nix's buildPatchedYabai,
+      # which builds/signs a locally patched binary (this beta's macOS
+      # version isn't supported by the upstream release yet) and installs
+      # it to the same /opt/homebrew/bin/yabai path.
+      "asmvik/formulae/skhd"
     ];
 
     casks = [

@@ -1,0 +1,40 @@
+#!/bin/bash
+source "$CONFIG_DIR/colors.sh"
+
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+ITEM_DIR="$CONFIG_DIR/items"
+
+sketchybar --bar height=36        \
+                 blur_radius=80  \
+                 position=top    \
+                 sticky=off      \
+                 padding_left=10 \
+                 padding_right=10 \
+                 color=$BAR_COLOR
+
+sketchybar --default icon.font="SF Pro:Semibold:14.0"  \
+                     icon.color=$WHITE                  \
+                     label.font="SF Pro:Semibold:14.0"  \
+                     label.color=$WHITE                 \
+                     background.drawing=on               \
+                     background.color=$ITEM_BG_COLOR    \
+                     background.corner_radius=8         \
+                     background.height=24               \
+                     padding_left=8                     \
+                     padding_right=8                     \
+                     label.padding_left=4               \
+                     label.padding_right=10             \
+                     icon.padding_left=10               \
+                     icon.padding_right=4
+
+sketchybar --add event @WORKSPACE_CHANGE_EVENT@
+
+source $ITEM_DIR/spaces.sh
+source $ITEM_DIR/front_app.sh
+source $ITEM_DIR/media.sh
+source $ITEM_DIR/calendar.sh
+source $ITEM_DIR/volume.sh
+source $ITEM_DIR/battery.sh
+source $ITEM_DIR/cpu.sh
+
+sketchybar --update

@@ -108,7 +108,7 @@
     bat = {
       enable = true;
       config = {
-        theme = "gruvbox-dark";
+        theme = "Nord";
       };
     };
   };

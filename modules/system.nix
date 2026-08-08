@@ -24,12 +24,9 @@ in {
       menuExtraClock.IsAnalog = true;
 
       dock = {
-        # tiling: hidden behind a very long show-delay (effectively disabled)
-        # normal: stock macOS autohide-on-hover behaviour
-        autohide =
-          if isTiling
-          then true
-          else false;
+        # always autohide; tiling mode additionally sets a very long
+        # show-delay below (effectively disabling reveal-on-hover)
+        autohide = true;
         mru-spaces = false;
         orientation = "bottom";
       };

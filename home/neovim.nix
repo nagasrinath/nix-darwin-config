@@ -16,7 +16,7 @@
         cat > "$HOME/.config/nvim/lua/chadrc.lua" << 'EOF'
     ---@type ChadrcConfig
     local M = {}
-    M.base46 = { theme = "gruvbox" }
+    M.base46 = { theme = "nord" }
     return M
     EOF
   '';

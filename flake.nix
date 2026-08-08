@@ -33,13 +33,14 @@
     # Window management mode. Set to either "tiling" or "normal":
     #   tiling -> tiling WM (wmEngine) + sketchybar enabled, dock hidden (long delay), menu bar always hidden
     #   normal -> tiling WM + sketchybar disabled, stock macOS dock, menu bar hidden only in fullscreen
-    wmMode = "normal";
+    wmMode = "tiling";
 
-    # Which tiling WM engine to use when wmMode == "tiling". Set to either
-    # "aerospace" or "yabai":
+    # Which tiling WM engine to use when wmMode == "tiling". Set to
+    # "aerospace", "yabai", or anything else (e.g. "none") to keep both
+    # stopped:
     #   aerospace -> AeroSpace (home/aerospace.nix)
     #   yabai     -> yabai + skhd (home/yabai.nix)
-    wmEngine = "aerospace";
+    wmEngine = "yabai";
 
     specialArgs =
       inputs
