@@ -16,15 +16,18 @@
     /usr/bin/pgrep -x AeroSpace >/dev/null 2>&1 || /usr/bin/open -g -a AeroSpace >/dev/null 2>&1 || true
   '';
 
+  # ponytail: the asmvik/formulae yabai/skhd formulas don't implement
+  # `brew services` (no plist/service block) - they self-manage launchd
+  # via --start-service/--stop-service instead.
   stopYabai = ''
-    /opt/homebrew/bin/brew services stop yabai >/dev/null 2>&1 || true
-    /opt/homebrew/bin/brew services stop skhd >/dev/null 2>&1 || true
+    /opt/homebrew/bin/yabai --stop-service >/dev/null 2>&1 || true
+    /opt/homebrew/bin/skhd --stop-service >/dev/null 2>&1 || true
     /usr/bin/pkill -x yabai >/dev/null 2>&1 || true
     /usr/bin/pkill -x skhd >/dev/null 2>&1 || true
   '';
   startYabai = ''
-    /opt/homebrew/bin/brew services start yabai >/dev/null 2>&1 || true
-    /opt/homebrew/bin/brew services start skhd >/dev/null 2>&1 || true
+    /opt/homebrew/bin/yabai --start-service >/dev/null 2>&1 || true
+    /opt/homebrew/bin/skhd --start-service >/dev/null 2>&1 || true
   '';
 
   stopSketchybar = ''

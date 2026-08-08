@@ -1,87 +1,64 @@
-{...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: let
+  # ponytail: yabai's upstream release doesn't support this macOS beta yet
+  # (space-focus is silently broken - see asmvik/yabai#2802). This builds a
+  # local patch from a pinned commit + macos27.patch, cached by commit hash
+  # so the binary is byte-identical across rebuilds (Mach-O embeds a random
+  # UUID per compile, so re-signing on every rebuild would keep invalidating
+  # the sudoers hash pin below). Homebrew reinstalls the vanilla binary on
+  # every switch; this activation script runs after it and overwrites it
+  # back with the patched one.
+  #
+  # Requires a one-time-per-machine "yabai-cert" Code Signing identity in
+  # the login keychain (self-signed, trusted for codeSign) - this script
+  # only uses it, never creates/trusts it. Upgrade path: bump patchCommit
+  # below to track a newer upstream fix, or drop this whole file once
+  # asmvik/yabai officially supports this macOS version.
+  patchCommit = "dd845723416f5fe92af49fad5ebab00369e07edd";
+  patchFile = ./yabai/macos27.patch;
+in {
   home.file.yabai = {
     executable = true;
     target = ".config/yabai/yabairc";
-    text = ''
-      #!/usr/bin/env sh
-
-      # Load the scripting addition. This requires partially disabling SIP
-      # (one-time manual step via Recovery Mode) - yabai still works in a
-      # reduced capacity without it, this just fails silently otherwise.
-      sudo yabai --load-sa 2>/dev/null || true
-      yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa 2>/dev/null || true"
-
-      yabai -m config layout bsp
-      yabai -m config auto_balance off
-      yabai -m config window_topmost on
-      yabai -m config window_placement second_child
-
-      yabai -m config top_padding    10
-      yabai -m config bottom_padding 10
-      yabai -m config left_padding   10
-      yabai -m config right_padding  10
-      yabai -m config window_gap     10
-
-      yabai -m config mouse_follows_focus off
-      yabai -m config focus_follows_mouse autofocus
-
-      # rules
-      yabai -m rule --add app="^System Settings$" manage=off
-      yabai -m rule --add app="^System Preferences$" manage=off
-
-      # sketchybar integration: fire a custom event on space change so the
-      # workspace pill updates instantly instead of relying on polling.
-      yabai -m signal --add event=space_changed action='/opt/homebrew/bin/sketchybar --trigger yabai_workspace_change FOCUSED_WORKSPACE=$(/opt/homebrew/bin/yabai -m query --spaces --space | /usr/bin/grep -o "\"index\":[0-9]*" | /usr/bin/grep -o "[0-9]*")'
-
-      echo "yabai configuration loaded.."
-    '';
+    source = ./yabai/yabairc;
   };
 
   home.file.skhd = {
     target = ".config/skhd/skhdrc";
-    text = ''
-      # focus window
-      alt - h : /opt/homebrew/bin/yabai -m window --focus west
-      alt - j : /opt/homebrew/bin/yabai -m window --focus south
-      alt - k : /opt/homebrew/bin/yabai -m window --focus north
-      alt - l : /opt/homebrew/bin/yabai -m window --focus east
-
-      # swap window
-      alt + shift - h : /opt/homebrew/bin/yabai -m window --swap west
-      alt + shift - j : /opt/homebrew/bin/yabai -m window --swap south
-      alt + shift - k : /opt/homebrew/bin/yabai -m window --swap north
-      alt + shift - l : /opt/homebrew/bin/yabai -m window --swap east
-
-      # resize window (shrink / grow)
-      alt - minus : /opt/homebrew/bin/yabai -m window --resize left:-50:-50 2>/dev/null; /opt/homebrew/bin/yabai -m window --resize right:-50:-50 2>/dev/null; /opt/homebrew/bin/yabai -m window --resize bottom:-50:-50 2>/dev/null
-      alt - equal : /opt/homebrew/bin/yabai -m window --resize left:50:50 2>/dev/null; /opt/homebrew/bin/yabai -m window --resize right:50:50 2>/dev/null; /opt/homebrew/bin/yabai -m window --resize bottom:50:50 2>/dev/null
-
-      # switch layout
-      alt - slash : /opt/homebrew/bin/yabai -m space --layout bsp
-      alt - comma : /opt/homebrew/bin/yabai -m space --layout stack
-
-      # focus space
-      alt - 1 : /opt/homebrew/bin/yabai -m space --focus 1
-      alt - 2 : /opt/homebrew/bin/yabai -m space --focus 2
-      alt - 3 : /opt/homebrew/bin/yabai -m space --focus 3
-      alt - 4 : /opt/homebrew/bin/yabai -m space --focus 4
-      alt - 5 : /opt/homebrew/bin/yabai -m space --focus 5
-
-      # move window to space and follow
-      alt + shift - 1 : /opt/homebrew/bin/yabai -m window --space 1; /opt/homebrew/bin/yabai -m space --focus 1
-      alt + shift - 2 : /opt/homebrew/bin/yabai -m window --space 2; /opt/homebrew/bin/yabai -m space --focus 2
-      alt + shift - 3 : /opt/homebrew/bin/yabai -m window --space 3; /opt/homebrew/bin/yabai -m space --focus 3
-      alt + shift - 4 : /opt/homebrew/bin/yabai -m window --space 4; /opt/homebrew/bin/yabai -m space --focus 4
-      alt + shift - 5 : /opt/homebrew/bin/yabai -m window --space 5; /opt/homebrew/bin/yabai -m space --focus 5
-
-      # float / unfloat window and center on screen
-      alt - t : /opt/homebrew/bin/yabai -m window --toggle float; \
-                /opt/homebrew/bin/yabai -m window --grid 4:4:1:1:2:2
-
-      # toggle sticky(+float), topmost, picture-in-picture
-      alt - p : /opt/homebrew/bin/yabai -m window --toggle sticky; \
-                /opt/homebrew/bin/yabai -m window --toggle topmost; \
-                /opt/homebrew/bin/yabai -m window --toggle pip
-    '';
+    source = ./yabai/skhdrc;
   };
+
+  home.activation.buildPatchedYabai = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    cache="$HOME/.cache/yabai-macos27-patch/${patchCommit}/yabai"
+    dst="/opt/homebrew/bin/yabai"
+
+    if [ ! -x "$cache" ]; then
+      echo "yabai: building macOS 27 scripting-addition patch (one-time, needs local 'yabai-cert')..."
+      build="$(/usr/bin/mktemp -d)"
+      if ${pkgs.git}/bin/git clone --quiet https://github.com/asmvik/yabai.git "$build" \
+        && (cd "$build" \
+            && ${pkgs.git}/bin/git checkout --quiet ${patchCommit} \
+            && ${pkgs.git}/bin/git apply ${patchFile} \
+            && PATH="/usr/bin:$PATH" /usr/bin/make install >/dev/null \
+            && PATH="/usr/bin:$PATH" /usr/bin/make sign); then
+        /bin/mkdir -p "$(/usr/bin/dirname "$cache")"
+        /bin/cp "$build/bin/yabai" "$cache"
+      else
+        echo "yabai: macOS 27 patch build failed, leaving Homebrew's yabai in place" >&2
+      fi
+      /bin/rm -rf "$build"
+    fi
+
+    if [ -x "$cache" ] && ! /usr/bin/cmp -s "$cache" "$dst" 2>/dev/null; then
+      /bin/rm -f "$dst"
+      /bin/cp "$cache" "$dst"
+      echo "yabai: installed macOS 27 scripting-addition patch at $dst"
+      echo "  if this is a new build (first run, or patchCommit changed), reload the SA:"
+      echo "    sudo $dst --uninstall-sa && sudo $dst --load-sa && sudo $dst --load-sa"
+      echo "  and refresh the sudoers hash pin + Accessibility grant if needed."
+    fi
+  '';
 }

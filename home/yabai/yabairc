@@ -1,0 +1,41 @@
+#!/usr/bin/env sh
+
+# Load the scripting addition. This requires partially disabling SIP
+# (one-time manual step via Recovery Mode) - yabai still works in a
+# reduced capacity without it, this just fails silently otherwise.
+sudo /opt/homebrew/bin/yabai --load-sa 2>/dev/null || true
+/opt/homebrew/bin/yabai -m signal --add event=dock_did_restart action="sudo /opt/homebrew/bin/yabai --load-sa 2>/dev/null || true"
+
+/opt/homebrew/bin/yabai -m config layout bsp
+/opt/homebrew/bin/yabai -m config auto_balance off
+/opt/homebrew/bin/yabai -m config window_placement second_child
+
+/opt/homebrew/bin/yabai -m config top_padding    10
+/opt/homebrew/bin/yabai -m config bottom_padding 10
+/opt/homebrew/bin/yabai -m config left_padding   10
+/opt/homebrew/bin/yabai -m config right_padding  10
+/opt/homebrew/bin/yabai -m config window_gap     10
+
+/opt/homebrew/bin/yabai -m config mouse_follows_focus off
+/opt/homebrew/bin/yabai -m config focus_follows_mouse autofocus
+
+# rules
+/opt/homebrew/bin/yabai -m rule --add app="^System Settings$" manage=off
+/opt/homebrew/bin/yabai -m rule --add app="^System Preferences$" manage=off
+
+/opt/homebrew/bin/yabai -m config window_shadow off
+
+/opt/homebrew/bin/yabai -m config window_opacity_duration 0.0
+/opt/homebrew/bin/yabai -m config active_window_opacity 1.0
+/opt/homebrew/bin/yabai -m config normal_window_opacity 0.9
+/opt/homebrew/bin/yabai -m config window_shadow off
+
+/opt/homebrew/bin/yabai -m config mouse_modifier fn
+/opt/homebrew/bin/yabai -m config mouse_action1 move
+/opt/homebrew/bin/yabai -m config mouse_action2 resize
+
+# sketchybar integration: fire a custom event on space change so the
+# workspace pill updates instantly instead of relying on polling.
+/opt/homebrew/bin/yabai -m signal --add event=space_changed action='/opt/homebrew/bin/sketchybar --trigger yabai_workspace_change FOCUSED_WORKSPACE=$(/opt/homebrew/bin/yabai -m query --spaces --space | /usr/bin/grep -o "\"index\":[0-9]*" | /usr/bin/grep -o "[0-9]*")'
+
+echo "yabai configuration loaded.."
