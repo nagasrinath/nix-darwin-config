@@ -1,8 +1,4 @@
-{
-  pkgs,
-  wmMode,
-  ...
-}: {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     just
   ];
@@ -28,8 +24,6 @@
       "nikitabobko/tap"
       "grishka/grishka"
       "mobile-dev-inc/tap"
-      "FelixKratz/formulae"
-      "asmvik/formulae" # formerly koekeishiya/formulae (yabai/skhd author's tap, transferred)
     ];
 
     brews = [
@@ -46,25 +40,7 @@
       "fabric-ai"
       "herdr"
       "trash"
-      "borders"
       "mole"
-      (
-        if wmMode == "tiling"
-        then {
-          name = "sketchybar";
-          start_service = true;
-          restart_service = "changed";
-        }
-        else "sketchybar"
-      )
-      # ponytail: skhd's formula doesn't implement `brew services` (no
-      # plist/service block) - it self-manages launchd via `--start-service`,
-      # wired up in home/wm-mode.nix's activation script. yabai itself is
-      # NOT installed from here - see home/yabai.nix's buildPatchedYabai,
-      # which builds/signs a locally patched binary (this beta's macOS
-      # version isn't supported by the upstream release yet) and installs
-      # it to the same /opt/homebrew/bin/yabai path.
-      "asmvik/formulae/skhd"
     ];
 
     casks = [
@@ -76,6 +52,7 @@
       "helium-browser"
       "tor-browser"
       "zen-browser"
+      "thebrowsercompany-dia"
 
       # Development
       "cursor"
@@ -108,7 +85,6 @@
       "free-download-manager"
 
       "raycast"
-      "alfred"
       "tailscale-app"
       "nordvpn"
       "obscura-vpn"
