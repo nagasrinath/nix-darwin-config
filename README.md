@@ -2,7 +2,8 @@
 
 Personal macOS system configuration using [nix-darwin](https://github.com/lnl7/nix-darwin) + [home-manager](https://github.com/nix-community/home-manager), managed as a flake.
 
-![screenshot](screenshot.png)
+![screenshot](screenshots/screenshot1.png)
+![screenshot](screenshots/screenshot2.png)
 
 ## Usage
 
