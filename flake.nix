@@ -31,21 +31,15 @@
     hostname = "mac";
 
     # Window management mode. Set to either "tiling" or "normal":
-    #   tiling -> tiling WM (wmEngine) + sketchybar enabled, dock hidden (long delay), menu bar always hidden
-    #   normal -> tiling WM + sketchybar disabled, stock macOS dock, menu bar hidden only in fullscreen
+    #   tiling -> AeroSpace (home/aerospace.nix) enabled, dock hidden
+    #             (long delay), menu bar always hidden.
+    #   normal -> stock macOS dock, menu bar hidden only in fullscreen
     wmMode = "tiling";
-
-    # Which tiling WM engine to use when wmMode == "tiling". Set to
-    # "aerospace", "yabai", or anything else (e.g. "none") to keep both
-    # stopped:
-    #   aerospace -> AeroSpace (home/aerospace.nix)
-    #   yabai     -> yabai + skhd (home/yabai.nix)
-    wmEngine = "yabai";
 
     specialArgs =
       inputs
       // {
-        inherit username useremail hostname wmMode wmEngine;
+        inherit username useremail hostname wmMode;
       };
   in {
     darwinConfigurations."${hostname}" = darwin.lib.darwinSystem {
