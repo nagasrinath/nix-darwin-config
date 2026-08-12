@@ -107,8 +107,7 @@
 
     bat = {
       enable = true;
-      # ponytail: bat's bundled gruvbox is medium contrast, no "hard" built in
-      config.theme = "gruvbox (Dark) (Medium)";
+      config.theme = "Nord";
     };
   };
 }

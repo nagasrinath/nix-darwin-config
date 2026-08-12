@@ -60,12 +60,12 @@ All set declaratively in `modules/system.nix`:
 ## Terminal / shell
 
 - Shell: [fish](home/shell.nix) with [starship](home/starship.nix) prompt
-- Terminals: [Ghostty](home/ghostty.nix), [Kitty](home/kitty.nix) & [Alacritty](home/alacritty.nix) — Gruvbox Dark Hard, IoskeleyMono Nerd Font
+- Terminals: [Ghostty](home/ghostty.nix), [Kitty](home/kitty.nix) & [Alacritty](home/alacritty.nix) — Nord, IoskeleyMono Nerd Font
 - CLI tools ([home/core.nix](home/core.nix)): ripgrep, fzf, eza, zoxide, bat, yazi, jq, gh, htop, fastfetch, and language servers/toolchains for Go, Python, Node, Lua, Java
 
 ## Editors
 
-- [Helix](home/helix.nix) — primary editor, Gruvbox Dark Hard theme, LSPs for Nix/Go/Python/Lua/TS/Java
+- [Helix](home/helix.nix) — primary editor, Nord theme, LSPs for Nix/Go/Python/Lua/TS/Java
 - [Neovim](home/neovim.nix) — NvChad-based config, set as `$EDITOR`
 
 ## Window management
