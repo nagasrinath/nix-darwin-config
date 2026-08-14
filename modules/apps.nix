@@ -51,7 +51,7 @@
       "google-chrome"
       "helium-browser"
       "tor-browser"
-      "zen-browser"
+      "zen"
       "thebrowsercompany-dia"
 
       # Development
