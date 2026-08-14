@@ -18,6 +18,7 @@
       ./kitty.nix
       ./alacritty.nix
       ./wm-mode.nix
+      ./fetch.nix
     ]
     ++ lib.optionals (wmMode == "tiling") [
       ./aerospace.nix
