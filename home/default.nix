@@ -15,8 +15,6 @@
       ./direnv.nix
       ./nix-index.nix
       ./neovim.nix
-      ./kitty.nix
-      ./alacritty.nix
       ./wm-mode.nix
       ./fetch.nix
     ]

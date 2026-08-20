@@ -50,23 +50,23 @@ All set declaratively in `modules/system.nix`:
 
 ## Apps (Homebrew, declared in `modules/apps.nix`)
 
-- **Browsers**: Brave, Firefox (+ Nightly), Chrome, Helium, Tor, Zen, Dia
-- **Development**: Cursor, VS Code, Zed, Obsidian, JetBrains Toolbox, OrbStack, Postman, Sequel Ace, Claude / Claude Code, Supacode
+- **Browsers**: Brave, Firefox, Chrome, Helium, Tor, Dia
+- **Development**: VS Code, Zed, Obsidian, JetBrains Toolbox, OrbStack, Postman, Sequel Ace, TablePlus, DBeaver, Superset, Claude / Claude Code, Supacode
 - **Communication**: Superhuman, Discord, Microsoft Teams, Telegram, Signal
-- **Productivity & utilities**: 1Password (+ CLI), Raycast, ChatGPT, Tailscale, NordVPN, Obscura VPN
+- **Productivity & utilities**: 1Password (+ CLI), Raycast, ChatGPT, Tailscale, NordVPN, Obscura VPN, Gloomberb, Itsycal
 - **Media & design**: GIMP, IINA, OBS, Spotify
-- **System & other**: Karabiner Elements, AeroSpace (tiling WM), Ghostty/Kitty/Alacritty, Nerd Fonts, Transmission, UTM, AnyDesk
-- **Mac App Store**: WhatsApp, Bear, WireGuard, Windows App
+- **System & other**: AeroSpace (tiling WM), Ghostty, Nerd Fonts, Transmission, UTM
+- **Mac App Store**: WhatsApp, WireGuard, Windows App
 
 ## Terminal / shell
 
 - Shell: [fish](home/shell.nix) with [starship](home/starship.nix) prompt
-- Terminals: [Ghostty](home/ghostty.nix), [Kitty](home/kitty.nix) & [Alacritty](home/alacritty.nix) — Nord, IoskeleyMono Nerd Font
+- Terminal: [Ghostty](home/ghostty.nix) — Catppuccin Mocha, Inconsolata Nerd Font
 - CLI tools ([home/core.nix](home/core.nix)): ripgrep, fzf, eza, zoxide, bat, yazi, jq, gh, htop, fastfetch, and language servers/toolchains for Go, Python, Node, Lua, Java
 
 ## Editors
 
-- [Helix](home/helix.nix) — primary editor, Nord theme, LSPs for Nix/Go/Python/Lua/TS/Java
+- [Helix](home/helix.nix) — primary editor, Catppuccin Mocha theme, LSPs for Nix/Go/Python/Lua/TS/Java
 - [Neovim](home/neovim.nix) — NvChad-based config, set as `$EDITOR`
 
 ## Window management

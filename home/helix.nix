@@ -2,7 +2,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "nord";
+      theme = "catppuccin_mocha";
       editor = {
         bufferline = "multiple";
         cursorline = true;
@@ -29,6 +29,8 @@
             select = "SELECT";
           };
           separator = "│";
+          left = ["mode" "spinner" "version-control" "file-name" "file-modification-indicator" "read-only-indicator"];
+          right = ["diagnostics" "selections" "register" "position" "position-percentage" "file-encoding" "file-line-ending" "file-type"];
         };
         cursor-shape = {
           insert = "bar";
@@ -52,8 +54,8 @@
       };
     };
 
-    themes.nord_transparent = {
-      inherits = "nord";
+    themes.catppuccin_mocha_transparent = {
+      inherits = "catppuccin_mocha";
       "ui.background" = {};
     };
 
