@@ -89,6 +89,29 @@
       enableFishIntegration = true;
     };
 
+    atuin = {
+      enable = true;
+      enableFishIntegration = true;
+      # from https://github.com/catppuccin/atuin themes/mocha/catppuccin-mocha-mauve.toml
+      themes.catppuccin-mocha-mauve = {
+        theme.name = "catppuccin-mocha-mauve";
+        colors = {
+          AlertInfo = "#a6e3a1";
+          AlertWarn = "#fab387";
+          AlertError = "#f38ba8";
+          Annotation = "#cba6f7";
+          Base = "#cdd6f4";
+          Guidance = "#9399b2";
+          Important = "#f38ba8";
+          Title = "#cba6f7";
+        };
+      };
+      settings = {
+        theme.name = "catppuccin-mocha-mauve";
+        show_help = false;
+      };
+    };
+
     yazi = {
       enable = true;
       enableFishIntegration = true;
@@ -107,7 +130,16 @@
 
     bat = {
       enable = true;
-      config.theme = "Nord";
+      config.theme = "Catppuccin Mocha";
+      themes."Catppuccin Mocha" = {
+        src = pkgs.fetchFromGitHub {
+          owner = "catppuccin";
+          repo = "bat";
+          rev = "6810349b28055dce54076712fc05fc68da4b8ec0";
+          hash = "sha256-lJapSgRVENTrbmpVyn+UQabC9fpV1G1e+CdlJ090uvg=";
+        };
+        file = "themes/Catppuccin Mocha.tmTheme";
+      };
     };
   };
 }

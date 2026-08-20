@@ -15,7 +15,6 @@
 
     masApps = {
       "Whatsapp" = 310633997;
-      "Bear" = 1091189122;
       "WireGuard" = 1451685025;
       "Windows App" = 1295203466;
     };
@@ -24,6 +23,9 @@
       "nikitabobko/tap"
       "grishka/grishka"
       "mobile-dev-inc/tap"
+      "vincelwt/tap"
+      "nrwl/tap"
+      "letstri/tap"
     ];
 
     brews = [
@@ -41,27 +43,28 @@
       "herdr"
       "trash"
       "mole"
+      "mdv"
+      "nrwl/tap/polygraph"
+      "letstri/tap/druk"
     ];
 
     casks = [
       # Browsers
       "brave-browser"
       "firefox"
-      "firefox@nightly"
       "google-chrome"
       "helium-browser"
       "tor-browser"
-      "zen"
       "thebrowsercompany-dia"
 
       # Development
-      "cursor"
       "jetbrains-toolbox"
 
       "orbstack"
-      "postico"
       "postman"
       "sequel-ace"
+      "tableplus"
+      "superset"
       "supacode"
       "visual-studio-code"
       "zed"
@@ -70,9 +73,7 @@
       "claude"
 
       # Communication
-      "superhuman"
       "discord"
-      "microsoft-teams"
       "telegram"
       "signal"
 
@@ -81,13 +82,14 @@
       "1password-cli"
       "blip"
       "chatgpt"
-      "google-gemini"
       "free-download-manager"
 
       "raycast"
       "tailscale-app"
       "nordvpn"
       "obscura-vpn"
+      "vincelwt/tap/gloomberb"
+      "itsycal"
 
       # Media & Design
       "gimp"
@@ -96,19 +98,14 @@
       "spotify"
 
       # System & Others
-      "sf-symbols"
       "font-sf-pro"
-      "karabiner-elements"
       "nikitabobko/tap/aerospace"
       "font-fantasque-sans-mono-nerd-font"
       "font-iosevka-nerd-font"
       "font-monocraft-nerd-font"
       "ghostty"
-      "kitty"
-      "alacritty"
       "transmission"
       "utm"
-      "anydesk"
       "steam"
       "xonotic"
     ];
