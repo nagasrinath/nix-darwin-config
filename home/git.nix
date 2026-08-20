@@ -12,6 +12,11 @@
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
       pull.rebase = true;
+
+      user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAX5ZBkuzFQFxB5i6pbA929ia8AXITNLIN0nf6KHWkUD";
+      gpg.format = "ssh";
+      gpg.ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+      commit.gpgsign = true;
     };
 
     aliases = {
