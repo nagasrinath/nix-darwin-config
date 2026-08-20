@@ -9,15 +9,8 @@ in {
   system = {
     stateVersion = 6;
     primaryUser = username;
-    activationScripts.trackpadGestures.text = ''
-      sudo -u ${username} /usr/bin/defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 1
-      sudo -u ${username} /usr/bin/defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 0
-      sudo -u ${username} /usr/bin/defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerHorizSwipeGesture -int 0
-      sudo -u ${username} /usr/bin/defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture -int 0
-      sudo -u ${username} /usr/bin/defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 1
-      sudo -u ${username} /usr/bin/defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 0
-      sudo -u ${username} /usr/bin/defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerHorizSwipeGesture -int 0
-      sudo -u ${username} /usr/bin/defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture -int 0
+    activationScripts.displayScale.text = ''
+      /opt/homebrew/bin/displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1710x1112 hz:60 color_depth:8 enabled:true scaling:on origin:(0,0) degree:0" >/dev/null 2>&1 || true
     '';
 
     defaults = {
@@ -71,6 +64,8 @@ in {
         NSAutomaticPeriodSubstitutionEnabled = false;
         NSAutomaticQuoteSubstitutionEnabled = false;
         NSAutomaticSpellingCorrectionEnabled = false;
+        NSAutomaticWindowAnimationsEnabled = false;
+        NSWindowShouldDragOnGesture = true;
         NSNavPanelExpandedStateForSaveMode = true;
         NSNavPanelExpandedStateForSaveMode2 = true;
       };
@@ -82,6 +77,7 @@ in {
         NSGlobalDomain = {
           WebKitDeveloperExtras = true;
           AppleMenuBarVisibleInFullscreen = false;
+          AppleActionOnDoubleClick = "None";
         };
         "com.apple.finder" = {
           ShowExternalHardDrivesOnDesktop = true;
@@ -98,12 +94,40 @@ in {
         "com.apple.spaces" = {
           "spans-displays" = 0;
         };
+
+        # tiling window manager replaces macOS trackpad gestures;
+        # keep three-finger horizontal swipe (swipe between pages)
+        "com.apple.AppleMultitouchTrackpad" = {
+          TrackpadThreeFingerHorizSwipeGesture = 1;
+          TrackpadThreeFingerVertSwipeGesture = 0;
+          TrackpadFourFingerHorizSwipeGesture = 0;
+          TrackpadFourFingerVertSwipeGesture = 0;
+          TrackpadPinch = 0;
+          TrackpadFourFingerPinchGesture = 0;
+          TrackpadFiveFingerPinchGesture = 0;
+        };
+        "com.apple.driver.AppleBluetoothMultitouch.trackpad" = {
+          TrackpadThreeFingerHorizSwipeGesture = 1;
+          TrackpadThreeFingerVertSwipeGesture = 0;
+          TrackpadFourFingerHorizSwipeGesture = 0;
+          TrackpadFourFingerVertSwipeGesture = 0;
+          TrackpadPinch = 0;
+          TrackpadFourFingerPinchGesture = 0;
+          TrackpadFiveFingerPinchGesture = 0;
+        };
         "com.apple.dock" = {
           # tiling: ~16.6 minutes, i.e. never shows in practice; normal: stock delay
           autohide-delay =
             if isTiling
             then 1000.0
             else 0.5;
+
+          # tiling window manager replaces these trackpad gestures
+          showDesktopGestureEnabled = false;
+          showMissionControlGestureEnabled = false;
+
+          # dragging a window to the top must not trigger Mission Control
+          enterMissionControlByTopWindowDrag = false;
         };
         "com.apple.WindowManager" = {
           EnableStandardClickToShowDesktop = 0;
@@ -111,6 +135,12 @@ in {
           HideDesktop = 1;
           StageManagerHideWidgets = 0;
           StandardHideWidgets = 0;
+
+          # AeroSpace handles tiling; disable macOS window tiling
+          EnableTilingByEdgeDrag = 0;
+          EnableTopTilingByEdgeDrag = 0;
+          EnableTilingOptionAccelerator = 0;
+          EnableTiledWindowMargins = 0;
         };
         "com.apple.screensaver" = {
           askForPassword = 1;

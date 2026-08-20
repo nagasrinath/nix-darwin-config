@@ -66,6 +66,13 @@
     fi
   '';
 
+  # used by system.activationScripts.displayScale to pin the built-in
+  # display to "More Space" (top HiDPI mode)
+  home.activation.installDisplayplacer = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    export PATH="/opt/homebrew/bin:$PATH"
+    brew list displayplacer >/dev/null 2>&1 || brew install displayplacer
+  '';
+
   services = {
     ollama = {
       #enable = true;
