@@ -25,7 +25,6 @@
       "mobile-dev-inc/tap"
       "vincelwt/tap"
       "nrwl/tap"
-      "letstri/tap"
     ];
 
     brews = [
@@ -45,7 +44,6 @@
       "mole"
       "mdv"
       "nrwl/tap/polygraph"
-      "letstri/tap/druk"
     ];
 
     casks = [
