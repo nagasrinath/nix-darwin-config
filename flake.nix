@@ -30,7 +30,7 @@
     home-manager,
     ...
   }: let
-    username = "me";
+    username = "naga";
     useremail = "nagasrinath@proton.me";
     system = "aarch64-darwin";
     hostname = "mac";

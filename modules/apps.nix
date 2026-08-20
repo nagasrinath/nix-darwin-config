@@ -25,6 +25,7 @@
       "mobile-dev-inc/tap"
       "vincelwt/tap"
       "nrwl/tap"
+      "anomalyco/tap"
     ];
 
     brews = [
@@ -36,14 +37,14 @@
       "postgrest"
       "openjdk"
       "copilot"
-      "happy-coder"
       "container"
       "fabric-ai"
       "herdr"
       "trash"
       "mole"
       "mdv"
-      "nrwl/tap/polygraph"
+      "polygraph"
+      "anomalyco/tap/opencode"
     ];
 
     casks = [
@@ -66,9 +67,9 @@
       "supacode"
       "visual-studio-code"
       "zed"
-      "claude-code"
+      # "claude-code"
       "obsidian"
-      "claude"
+      # "claude"
 
       # Communication
       "discord"
