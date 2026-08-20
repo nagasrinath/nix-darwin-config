@@ -3,6 +3,7 @@
     enable = true;
     interactiveShellInit = "
       set fish_greeting
+      fish_add_path /opt/homebrew/bin
       export MANPAGER='nvim +Man!'";
     shellAliases = {
       "..." = "cd ../..";

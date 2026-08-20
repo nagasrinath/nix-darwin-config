@@ -26,6 +26,9 @@
     username = username;
     homeDirectory = "/Users/${username}";
 
+    # silence macOS "Last login" banner in new terminal windows
+    file.".hushlogin".text = "";
+
     stateVersion = "24.05";
   };
 
