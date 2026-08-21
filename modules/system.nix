@@ -13,27 +13,6 @@ in {
       /opt/homebrew/bin/displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1710x1112 hz:60 color_depth:8 enabled:true scaling:on origin:(0,0) degree:0" >/dev/null 2>&1 || true
     '';
 
-    # yabai scripting addition: NOPASSWD sudoers row pinned to the sha256
-    # of the current binary (brew upgrades change the hash; this reruns on
-    # every switch, keeping the pin in sync). Validates with visudo before
-    # installing so a bad row can never lock out sudo.
-    activationScripts.yabaiSudoers.text = ''
-      yabai_bin=/opt/homebrew/bin/yabai
-      if [ -x "$yabai_bin" ]; then
-        yabai_hash=$(/usr/bin/shasum -a 256 "$yabai_bin" | /usr/bin/cut -d " " -f 1)
-        sudoers_row="${username} ALL=(root) NOPASSWD: sha256:$yabai_hash $yabai_bin --load-sa"
-        sudoers_tmp=$(/usr/bin/mktemp /private/etc/sudoers.d/.yabai.XXXXXX)
-        /bin/echo "$sudoers_row" > "$sudoers_tmp"
-        if /usr/sbin/visudo -cqf "$sudoers_tmp"; then
-          /bin/chmod 0440 "$sudoers_tmp"
-          /bin/mv "$sudoers_tmp" /private/etc/sudoers.d/yabai
-        else
-          /bin/rm -f "$sudoers_tmp"
-          echo "yabai sudoers row failed validation; leaving existing file" >&2
-        fi
-      fi
-    '';
-
     defaults = {
       menuExtraClock.IsAnalog = true;
 
@@ -76,9 +55,9 @@ in {
         "com.apple.sound.beep.volume" = 0.0;
         "com.apple.sound.beep.feedback" = 0;
 
-        # menu bar auto-hide: tiling -> "Always", normal -> "In Full Screen Only"
+        # menu bar auto-hide: "In Full Screen Only"
         # (see https://developer.apple.com/documentation/devicemanagement/globalpreferences)
-        _HIHideMenuBar = isTiling;
+        _HIHideMenuBar = false;
 
         NSAutomaticCapitalizationEnabled = false;
         NSAutomaticDashSubstitutionEnabled = false;

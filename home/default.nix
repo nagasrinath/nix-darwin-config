@@ -16,7 +16,6 @@
       ./nix-index.nix
       ./neovim.nix
       ./wm-mode.nix
-      ./yabai.nix
       ./fetch.nix
     ]
     ++ lib.optionals (wmMode == "tiling") [
