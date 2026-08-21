@@ -36,8 +36,10 @@ home/               user-level (home-manager) config, one file per tool
 
 All set declaratively in `modules/system.nix`:
 
-- **Trackpad**: tap to click off, three-finger drag on, three-finger swipe for app switching
+- **Trackpad**: tap to click off, three-finger drag on, three-finger swipe between pages; Mission Control / App Exposé / full-screen swipe / Launchpad & Show Desktop pinch gestures all off (AeroSpace replaces them)
 - **Keyboard**: fast key repeat, no auto-capitalize/dash/period/quote substitution, no autocorrect
+- **Windows**: no window animations, drag windows with ctrl+cmd (anywhere in the window), title bar double-click does nothing, macOS window tiling (edge drag / opt-drag / margins) disabled, dragging to top of screen doesn't trigger Mission Control
+- **Display**: built-in display pinned to "More Space" scaling via `displayplacer` (activation script)
 - **Dock**: auto-hide (no delay), bottom, no rearranging by most-recently-used
 - **Menu bar**: auto-hidden, analog clock
 - **Finder**: show all file extensions, path bar + status bar, list view by default, show external/USB/network drives on desktop
@@ -51,17 +53,17 @@ All set declaratively in `modules/system.nix`:
 ## Apps (Homebrew, declared in `modules/apps.nix`)
 
 - **Browsers**: Brave, Firefox, Chrome, Helium, Tor, Dia
-- **Development**: VS Code, Zed, Obsidian, JetBrains Toolbox, OrbStack, Postman, Sequel Ace, TablePlus, DBeaver, Superset, Claude / Claude Code, Supacode
-- **Communication**: Superhuman, Discord, Microsoft Teams, Telegram, Signal
-- **Productivity & utilities**: 1Password (+ CLI), Raycast, ChatGPT, Tailscale, NordVPN, Obscura VPN, Gloomberb, Itsycal
+- **Development**: VS Code, Zed, Obsidian, JetBrains Toolbox, OrbStack, Postman, Sequel Ace, TablePlus, Superset, Supacode, opencode (via `anomalyco/tap`)
+- **Communication**: Discord, Telegram, Signal
+- **Productivity & utilities**: 1Password (+ CLI), Raycast, ChatGPT, Blip, Free Download Manager, Tailscale, NordVPN, Gloomberb, Itsycal
 - **Media & design**: GIMP, IINA, OBS, Spotify
-- **System & other**: AeroSpace (tiling WM), Ghostty, Nerd Fonts, Transmission, UTM
+- **System & other**: AeroSpace (tiling WM), Ghostty, Nerd Fonts, Transmission, UTM, Steam, Xonotic
 - **Mac App Store**: WhatsApp, WireGuard, Windows App
 
 ## Terminal / shell
 
-- Shell: [fish](home/shell.nix) with [starship](home/starship.nix) prompt
-- Terminal: [Ghostty](home/ghostty.nix) — Catppuccin Mocha, Inconsolata Nerd Font
+- Shell: [fish](home/shell.nix) with [starship](home/starship.nix) prompt, Homebrew on PATH
+- Terminal: [Ghostty](home/ghostty.nix) — Catppuccin Mocha, Inconsolata Nerd Font, no "Last login" banner (`~/.hushlogin`)
 - CLI tools ([home/core.nix](home/core.nix)): ripgrep, fzf, eza, zoxide, bat, yazi, jq, gh, htop, fastfetch, and language servers/toolchains for Go, Python, Node, Lua, Java
 
 ## Editors
@@ -71,10 +73,10 @@ All set declaratively in `modules/system.nix`:
 
 ## Window management
 
-- [AeroSpace](home/aerospace.nix) — the tiling window manager, vim-style keybindings (`alt+hjkl`) defined in its own config, no private APIs
+- [AeroSpace](home/aerospace.nix) — the tiling window manager, vim-style keybindings (`alt+hjkl`) defined in its own config, `alt-t` opens a new Ghostty window, no private APIs
 
 Only runs when `wmMode == "tiling"`.
 
 ## Git
 
-Configured in [home/git.nix](home/git.nix): `main` as default branch, autosetup remote on push, rebase on pull, short aliases (`gs`, `ga`, `gc`, `gp`, `gl`, ...).
+Configured in [home/git.nix](home/git.nix): `main` as default branch, autosetup remote on push, rebase on pull, short aliases (`gs`, `ga`, `gc`, `gp`, `gl`, ...). Commits are SSH-signed with a key stored in 1Password (`op-ssh-sign`).
