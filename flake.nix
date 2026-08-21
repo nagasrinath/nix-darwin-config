@@ -41,10 +41,16 @@
     #   normal -> stock macOS dock, menu bar hidden only in fullscreen
     wmMode = "tiling";
 
+    # Which tiling WM engine to use when wmMode == "tiling". Set to either
+    # "aerospace" or "rift":
+    #   aerospace -> AeroSpace (home/aerospace.nix)
+    #   rift      -> Rift (home/rift.nix), private-API Rust WM trial
+    wmEngine = "rift";
+
     specialArgs =
       inputs
       // {
-        inherit username useremail hostname wmMode;
+        inherit username useremail hostname wmMode wmEngine;
       };
   in {
     darwinConfigurations."${hostname}" = darwin.lib.darwinSystem {

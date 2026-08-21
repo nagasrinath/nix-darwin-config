@@ -26,6 +26,7 @@
       "vincelwt/tap"
       "nrwl/tap"
       "anomalyco/tap"
+      "acsandmann/tap"
     ];
 
     brews = [
@@ -38,6 +39,7 @@
       "openjdk"
       "openvpn"
       "copilot"
+      "rift"
       "container"
       "fabric-ai"
       "herdr"

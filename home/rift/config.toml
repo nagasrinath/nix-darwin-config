@@ -1,0 +1,118 @@
+# rift config — trial port of home/aerospace/aerospace.toml
+# bindings are 1:1 with the aerospace setup; workspaces are 0-based in
+# rift, so alt-1..9 map to workspace 0..8
+
+[settings]
+animate = false
+animation_duration = 0.2
+animation_fps = 100.0
+
+# manage spaces immediately, no Alt+Z activation step
+default_disable = false
+
+# keyboard-driven flow: no mouse-focus coupling (matches aerospace setup)
+focus_follows_mouse = false
+mouse_follows_focus = false
+mouse_hides_on_focus = false
+
+hot_reload = true
+
+[settings.layout]
+# i3/sway-like containers == aerospace 'tiles'
+mode = "bsp"
+
+[settings.layout.gaps.outer]
+top    = 10.0
+left   = 10.0
+bottom = 10.0
+right  = 10.0
+
+[settings.layout.gaps.inner]
+horizontal = 10.0
+vertical   = 10.0
+
+[settings.ui.menu_bar]
+# workspace indicator in the macOS menu bar (replaces simple-bar role)
+enabled = true
+show_empty = true
+mode = "active"
+active_label = "index"
+
+[settings.ui.stack_line]
+enabled = true
+
+[settings.ui.mission_control]
+enabled = true
+
+[settings.gestures]
+enabled = true
+fingers = 4
+haptics_enabled = true
+
+[virtual_workspaces]
+enabled = true
+default_workspace_count = 9
+auto_assign_windows = false
+preserve_focus_per_workspace = true
+workspace_auto_back_and_forth = true
+
+[modifier_combinations]
+comb1 = "Alt + Shift"
+
+[keys]
+# layouts: tiles (traditional) / accordion (stack)
+"Alt + Slash" = { set_workspace_layout = { mode = "bsp" } }
+"Alt + Comma" = { set_workspace_layout = { mode = "stack" } }
+
+# focus
+"Alt + H" = { move_focus = "left" }
+"Alt + J" = { move_focus = "down" }
+"Alt + K" = { move_focus = "up" }
+"Alt + L" = { move_focus = "right" }
+
+# move window
+"comb1 + H" = { move_node = "left" }
+"comb1 + J" = { move_node = "down" }
+"comb1 + K" = { move_node = "up" }
+"comb1 + L" = { move_node = "right" }
+
+# smart resize
+"Alt + Minus" = { resize_window_shrink = "smart" }
+"Alt + Equal" = { resize_window_grow = "smart" }
+
+# workspaces (rift is 0-based: alt-1..9 -> 0..8)
+"Alt + 1" = { switch_to_workspace = 0 }
+"Alt + 2" = { switch_to_workspace = 1 }
+"Alt + 3" = { switch_to_workspace = 2 }
+"Alt + 4" = { switch_to_workspace = 3 }
+"Alt + 5" = { switch_to_workspace = 4 }
+"Alt + 6" = { switch_to_workspace = 5 }
+"Alt + 7" = { switch_to_workspace = 6 }
+"Alt + 8" = { switch_to_workspace = 7 }
+"Alt + 9" = { switch_to_workspace = 8 }
+
+# move window to workspace
+"comb1 + 1" = { move_window_to_workspace = 0 }
+"comb1 + 2" = { move_window_to_workspace = 1 }
+"comb1 + 3" = { move_window_to_workspace = 2 }
+"comb1 + 4" = { move_window_to_workspace = 3 }
+"comb1 + 5" = { move_window_to_workspace = 4 }
+"comb1 + 6" = { move_window_to_workspace = 5 }
+"comb1 + 7" = { move_window_to_workspace = 6 }
+"comb1 + 8" = { move_window_to_workspace = 7 }
+"comb1 + 9" = { move_window_to_workspace = 8 }
+
+# workspace back-and-forth
+"Alt + Tab" = "switch_to_last_workspace"
+
+# toggle floating for the focused window
+"Alt + Shift + Space" = "toggle_window_floating"
+
+# new Ghostty window (absolute paths; exec has no PATH inheritance)
+"Alt + Return" = { exec = ["/usr/bin/osascript", "-e", "tell application \"Ghostty\" to new window"] }
+
+# close / fullscreen
+"Alt + W" = "close_window"
+"Alt + F" = "toggle_fullscreen"
+
+"Alt + M" = "show_mission_control_all"
