@@ -17,20 +17,21 @@
         newChadrc="$(cat <<'EOF'
     ---@type ChadrcConfig
     local M = {}
-    -- base46's catppuccin isn't byte-exact to canonical Mocha; override the
-    -- backgrounds specifically so they match Ghostty's Catppuccin Mocha theme
+    -- base46's gruvbox_light isn't byte-exact to canonical Gruvbox Light
+    -- Medium; override the backgrounds specifically so they match Ghostty's
+    -- GruvboxLight theme
     M.base46 = {
-      theme = "catppuccin",
+      theme = "gruvbox_light",
       changed_themes = {
-        catppuccin = {
+        gruvbox_light = {
           base_30 = {
-            black = "#1e1e2e", -- canonical Mocha base
-            darker_black = "#181825", -- canonical Mocha mantle
+            black = "#fbf1c7", -- canonical light0 (medium) bg
+            darker_black = "#ebdbb2", -- canonical light1 (panel bg)
           },
           -- integrations/defaults.lua's Normal group reads base_16.base00
           -- directly rather than base_30.black, so it needs its own override
           base_16 = {
-            base00 = "#1e1e2e",
+            base00 = "#fbf1c7",
           },
         },
       },

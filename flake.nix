@@ -36,10 +36,11 @@
     hostname = "mac";
 
     # Window management mode. Set to either "tiling" or "normal":
-    #   tiling -> AeroSpace (home/aerospace.nix) enabled, dock hidden
-    #             (long delay), menu bar always hidden.
-    #   normal -> stock macOS dock, menu bar hidden only in fullscreen
-    wmMode = "tiling";
+    #   tiling -> WM engine (wmEngine) enabled, dock hidden (long delay),
+    #             menu bar always hidden.
+    #   normal -> stock macOS dock, menu bar hidden only in fullscreen,
+    #             no tiling WM running
+    wmMode = "normal";
 
     # Which tiling WM engine to use when wmMode == "tiling". Set to either
     # "aerospace" or "rift":

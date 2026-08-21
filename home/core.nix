@@ -99,22 +99,22 @@
     atuin = {
       enable = true;
       enableFishIntegration = true;
-      # from https://github.com/catppuccin/atuin themes/mocha/catppuccin-mocha-mauve.toml
-      themes.catppuccin-mocha-mauve = {
-        theme.name = "catppuccin-mocha-mauve";
+      # canonical Gruvbox Light Medium palette (faded accent variants)
+      themes.gruvbox-light = {
+        theme.name = "gruvbox-light";
         colors = {
-          AlertInfo = "#a6e3a1";
-          AlertWarn = "#fab387";
-          AlertError = "#f38ba8";
-          Annotation = "#cba6f7";
-          Base = "#cdd6f4";
-          Guidance = "#9399b2";
-          Important = "#f38ba8";
-          Title = "#cba6f7";
+          AlertInfo = "#79740e";
+          AlertWarn = "#b57614";
+          AlertError = "#9d0006";
+          Annotation = "#8f3f71";
+          Base = "#3c3836";
+          Guidance = "#7c6f64";
+          Important = "#9d0006";
+          Title = "#076678";
         };
       };
       settings = {
-        theme.name = "catppuccin-mocha-mauve";
+        theme.name = "gruvbox-light";
         show_help = false;
       };
     };
@@ -137,16 +137,8 @@
 
     bat = {
       enable = true;
-      config.theme = "Catppuccin Mocha";
-      themes."Catppuccin Mocha" = {
-        src = pkgs.fetchFromGitHub {
-          owner = "catppuccin";
-          repo = "bat";
-          rev = "6810349b28055dce54076712fc05fc68da4b8ec0";
-          hash = "sha256-lJapSgRVENTrbmpVyn+UQabC9fpV1G1e+CdlJ090uvg=";
-        };
-        file = "themes/Catppuccin Mocha.tmTheme";
-      };
+      # bat ships gruvbox-light natively - no fetch needed
+      config.theme = "gruvbox-light";
     };
   };
 }

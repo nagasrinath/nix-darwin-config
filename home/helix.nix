@@ -2,7 +2,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "catppuccin_mocha";
+      theme = "gruvbox_light";
       editor = {
         bufferline = "multiple";
         cursorline = true;
@@ -54,8 +54,8 @@
       };
     };
 
-    themes.catppuccin_mocha_transparent = {
-      inherits = "catppuccin_mocha";
+    themes.gruvbox_light_transparent = {
+      inherits = "gruvbox_light";
       "ui.background" = {};
     };
 

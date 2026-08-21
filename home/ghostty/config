@@ -1,4 +1,4 @@
-theme = "Catppuccin Mocha"
+theme = "Gruvbox Light"
 
 shell-integration = detect
 

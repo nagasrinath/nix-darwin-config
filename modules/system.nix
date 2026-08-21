@@ -95,25 +95,45 @@ in {
           "spans-displays" = 0;
         };
 
-        # tiling window manager replaces macOS trackpad gestures;
-        # keep three-finger horizontal swipe (swipe between pages)
+        # tiling mode: WM replaces macOS trackpad gestures (pinch off);
+        # normal mode: stock pinch gestures (Launchpad/Show Desktop) on.
+        # Vert/horiz swipes stay off in both modes by preference;
+        # keep three-finger horizontal swipe (swipe between pages).
         "com.apple.AppleMultitouchTrackpad" = {
           TrackpadThreeFingerHorizSwipeGesture = 1;
           TrackpadThreeFingerVertSwipeGesture = 0;
           TrackpadFourFingerHorizSwipeGesture = 0;
           TrackpadFourFingerVertSwipeGesture = 0;
-          TrackpadPinch = 0;
-          TrackpadFourFingerPinchGesture = 0;
-          TrackpadFiveFingerPinchGesture = 0;
+          TrackpadPinch =
+            if isTiling
+            then 0
+            else 1;
+          TrackpadFourFingerPinchGesture =
+            if isTiling
+            then 0
+            else 2;
+          TrackpadFiveFingerPinchGesture =
+            if isTiling
+            then 0
+            else 2;
         };
         "com.apple.driver.AppleBluetoothMultitouch.trackpad" = {
           TrackpadThreeFingerHorizSwipeGesture = 1;
           TrackpadThreeFingerVertSwipeGesture = 0;
           TrackpadFourFingerHorizSwipeGesture = 0;
           TrackpadFourFingerVertSwipeGesture = 0;
-          TrackpadPinch = 0;
-          TrackpadFourFingerPinchGesture = 0;
-          TrackpadFiveFingerPinchGesture = 0;
+          TrackpadPinch =
+            if isTiling
+            then 0
+            else 1;
+          TrackpadFourFingerPinchGesture =
+            if isTiling
+            then 0
+            else 2;
+          TrackpadFiveFingerPinchGesture =
+            if isTiling
+            then 0
+            else 2;
         };
         "com.apple.dock" = {
           # tiling: ~16.6 minutes, i.e. never shows in practice; normal: stock delay
@@ -122,12 +142,12 @@ in {
             then 1000.0
             else 0.5;
 
-          # tiling window manager replaces these trackpad gestures
-          showDesktopGestureEnabled = false;
-          showMissionControlGestureEnabled = false;
+          # tiling: WM replaces these gestures; normal: stock macOS
+          showDesktopGestureEnabled = !isTiling;
+          showMissionControlGestureEnabled = !isTiling;
 
-          # dragging a window to the top must not trigger Mission Control
-          enterMissionControlByTopWindowDrag = false;
+          # tiling: drag-to-top must not trigger Mission Control; normal: stock
+          enterMissionControlByTopWindowDrag = !isTiling;
         };
         "com.apple.WindowManager" = {
           EnableStandardClickToShowDesktop = 0;
@@ -136,10 +156,20 @@ in {
           StageManagerHideWidgets = 0;
           StandardHideWidgets = 0;
 
-          # AeroSpace handles tiling; disable macOS window tiling
-          EnableTilingByEdgeDrag = 0;
-          EnableTopTilingByEdgeDrag = 0;
-          EnableTilingOptionAccelerator = 0;
+          # tiling: WM handles tiling, disable macOS window tiling;
+          # normal: drag-to-tile enabled but without margins (always off)
+          EnableTilingByEdgeDrag =
+            if isTiling
+            then 0
+            else 1;
+          EnableTopTilingByEdgeDrag =
+            if isTiling
+            then 0
+            else 1;
+          EnableTilingOptionAccelerator =
+            if isTiling
+            then 0
+            else 1;
           EnableTiledWindowMargins = 0;
         };
         "com.apple.screensaver" = {
