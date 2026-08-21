@@ -86,7 +86,6 @@
       "raycast"
       "tailscale-app"
       "nordvpn"
-      "obscura-vpn"
       "vincelwt/tap/gloomberb"
       "itsycal"
 
