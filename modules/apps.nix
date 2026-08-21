@@ -64,7 +64,6 @@
       "postman"
       "sequel-ace"
       "tableplus"
-      "superset"
       "supacode"
       "visual-studio-code"
       "zed"
