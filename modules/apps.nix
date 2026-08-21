@@ -26,6 +26,7 @@
       "vincelwt/tap"
       "nrwl/tap"
       "anomalyco/tap"
+      "asmvik/formulae"
     ];
 
     brews = [
@@ -36,7 +37,9 @@
       "npm"
       "postgrest"
       "openjdk"
+      "openvpn"
       "copilot"
+      "yabai"
       "container"
       "fabric-ai"
       "herdr"
@@ -85,7 +88,6 @@
 
       "raycast"
       "tailscale-app"
-      "nordvpn"
       "vincelwt/tap/gloomberb"
       "itsycal"
 
