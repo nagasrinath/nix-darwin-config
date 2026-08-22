@@ -99,22 +99,22 @@
     atuin = {
       enable = true;
       enableFishIntegration = true;
-      # canonical Gruvbox Light Medium palette (faded accent variants)
-      themes.gruvbox-light = {
-        theme.name = "gruvbox-light";
+      # canonical Solarized Light palette
+      themes.solarized-light = {
+        theme.name = "solarized-light";
         colors = {
-          AlertInfo = "#79740e";
-          AlertWarn = "#b57614";
-          AlertError = "#9d0006";
-          Annotation = "#8f3f71";
-          Base = "#3c3836";
-          Guidance = "#7c6f64";
-          Important = "#9d0006";
-          Title = "#076678";
+          AlertInfo = "#859900";
+          AlertWarn = "#b58900";
+          AlertError = "#dc322f";
+          Annotation = "#6c71c4";
+          Base = "#657b83";
+          Guidance = "#93a1a1";
+          Important = "#dc322f";
+          Title = "#268bd2";
         };
       };
       settings = {
-        theme.name = "gruvbox-light";
+        theme.name = "solarized-light";
         show_help = false;
       };
     };
@@ -135,10 +135,22 @@
       enableFishIntegration = true;
     };
 
+    zellij = {
+      enable = true;
+      settings = {
+        # gruvbox-light is the light-medium variant (bg #fbf1c7)
+        theme = "gruvbox-light";
+        # minimal UI: no pane frames, stripped hints/progress
+        simplified_ui = true;
+        pane_frames = false;
+        default_layout = "compact";
+      };
+    };
+
     bat = {
       enable = true;
-      # bat ships gruvbox-light natively - no fetch needed
-      config.theme = "gruvbox-light";
+      # bat ships Solarized Light natively - no fetch needed
+      config.theme = "Solarized (light)";
     };
   };
 }

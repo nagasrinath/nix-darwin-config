@@ -13,6 +13,15 @@ in {
       /opt/homebrew/bin/displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1710x1112 hz:60 color_depth:8 enabled:true scaling:on origin:(0,0) degree:0" >/dev/null 2>&1 || true
     '';
 
+    # light appearance: deleting the key (absence = Light). Done here
+    # because NSGlobalDomain.AppleInterfaceStyle only accepts "Dark" and
+    # null, and null merely skips the write, leaving a stale "Dark" behind.
+    # Uses nix-darwin's launchctl-asuser pattern so the delete lands in the
+    # console user's GUI preference domain, not root's.
+    activationScripts.lightAppearance.text = ''
+      /bin/launchctl asuser "$(/usr/bin/id -u ${username})" /usr/bin/sudo -u ${username} /usr/bin/defaults delete NSGlobalDomain AppleInterfaceStyle >/dev/null 2>&1 || true
+    '';
+
     defaults = {
       menuExtraClock.IsAnalog = true;
 
@@ -42,7 +51,6 @@ in {
       };
 
       NSGlobalDomain = {
-        AppleInterfaceStyle = "Dark";
         ApplePressAndHoldEnabled = false;
 
         # 120, 90, 60, 30, 15, 2
@@ -55,9 +63,9 @@ in {
         "com.apple.sound.beep.volume" = 0.0;
         "com.apple.sound.beep.feedback" = 0;
 
-        # menu bar auto-hide: "In Full Screen Only"
+        # menu bar auto-hide: "Always"
         # (see https://developer.apple.com/documentation/devicemanagement/globalpreferences)
-        _HIHideMenuBar = false;
+        _HIHideMenuBar = true;
 
         NSAutomaticCapitalizationEnabled = false;
         NSAutomaticDashSubstitutionEnabled = false;
@@ -77,7 +85,10 @@ in {
         NSGlobalDomain = {
           WebKitDeveloperExtras = true;
           AppleMenuBarVisibleInFullscreen = false;
-          AppleActionOnDoubleClick = "None";
+          AppleActionOnDoubleClick =
+            if isTiling
+            then "None"
+            else "Fill";
         };
         "com.apple.finder" = {
           ShowExternalHardDrivesOnDesktop = true;
@@ -95,7 +106,7 @@ in {
           "spans-displays" = 0;
         };
 
-        # tiling mode: WM replaces macOS trackpad gestures (pinch off);
+        # tiling mode: WM replaces macOS trackpad gestures (all off);
         # normal mode: stock pinch gestures (Launchpad/Show Desktop) on.
         # Vert/horiz swipes stay off in both modes by preference;
         # keep three-finger horizontal swipe (swipe between pages).
@@ -136,11 +147,12 @@ in {
             else 2;
         };
         "com.apple.dock" = {
-          # tiling: ~16.6 minutes, i.e. never shows in practice; normal: stock delay
+          # tiling: ~16.6 minutes, i.e. never shows in practice;
+          # normal: instant reveal
           autohide-delay =
             if isTiling
             then 1000.0
-            else 0.5;
+            else 0.0;
 
           # tiling: WM replaces these gestures; normal: stock macOS
           showDesktopGestureEnabled = !isTiling;

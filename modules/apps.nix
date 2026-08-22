@@ -66,12 +66,13 @@
       "postman"
       "sequel-ace"
       "tableplus"
+      "yaak"
       "supacode"
       "visual-studio-code"
       "zed"
-      # "claude-code"
+      "claude-code"
       "obsidian"
-      # "claude"
+      "claude"
 
       # Communication
       "discord"

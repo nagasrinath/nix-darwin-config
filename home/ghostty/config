@@ -1,8 +1,10 @@
-theme = "Gruvbox Light"
+theme = "iTerm2 Solarized Light"
+
+# custom-shader = ~/.config/ghostty/shaders/cursor_warp.glsl
 
 shell-integration = detect
 
-font-family = "Inconsolata Nerd Font Mono"
+font-family = "Iosevka Nerd Font"
 font-size = 17
 
 cursor-style = underline
