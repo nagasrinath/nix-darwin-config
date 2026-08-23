@@ -2,7 +2,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "solarized_light";
+      theme = "gruvbox_light";
       editor = {
         bufferline = "multiple";
         cursorline = true;
@@ -54,8 +54,8 @@
       };
     };
 
-    themes.solarized_light_transparent = {
-      inherits = "solarized_light";
+    themes.gruvbox_light_transparent = {
+      inherits = "gruvbox_light";
       "ui.background" = {};
     };
 

@@ -103,6 +103,7 @@
       "font-fantasque-sans-mono-nerd-font"
       "font-iosevka-nerd-font"
       "font-monocraft-nerd-font"
+      "font-sf-mono-nerd-font-ligaturized"
       "ghostty"
       "transmission"
       "utm"
