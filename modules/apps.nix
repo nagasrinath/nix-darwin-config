@@ -27,6 +27,8 @@
       "nrwl/tap"
       "anomalyco/tap"
       "acsandmann/tap"
+      "ampcode/tap"
+      "1jehuang/jcode"
     ];
 
     brews = [
@@ -48,6 +50,8 @@
       "mdv"
       "polygraph"
       "anomalyco/tap/opencode"
+      "ampcode/tap/ampcode"
+      "jcode"
     ];
 
     casks = [
@@ -92,6 +96,7 @@
       "itsycal"
 
       # Media & Design
+      "figma"
       "gimp"
       "iina"
       "obs"

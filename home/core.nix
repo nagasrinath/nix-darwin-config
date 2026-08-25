@@ -51,6 +51,14 @@
     gopls
     golangci-lint-langserver
     delve
+    rustc
+    cargo
+    rust-analyzer
+    clippy
+    rustfmt
+    zola
+    sherlock
+    sshs
     rclone
     nodejs_24
     nodePackages.typescript-language-server
@@ -99,22 +107,22 @@
     atuin = {
       enable = true;
       enableFishIntegration = true;
-      # canonical Gruvbox Light Medium palette (faded accent variants)
-      themes.gruvbox-light = {
-        theme.name = "gruvbox-light";
+      # canonical Nord palette (Frost + Aurora accents)
+      themes.nord = {
+        theme.name = "nord";
         colors = {
-          AlertInfo = "#79740e";
-          AlertWarn = "#b57614";
-          AlertError = "#9d0006";
-          Annotation = "#8f3f71";
-          Base = "#3c3836";
-          Guidance = "#7c6f64";
-          Important = "#9d0006";
-          Title = "#076678";
+          AlertInfo = "#a3be8c";
+          AlertWarn = "#ebcb8b";
+          AlertError = "#bf616a";
+          Annotation = "#b48ead";
+          Base = "#d8dee9";
+          Guidance = "#4c566a";
+          Important = "#bf616a";
+          Title = "#81a1c1";
         };
       };
       settings = {
-        theme.name = "gruvbox-light";
+        theme.name = "nord";
         show_help = false;
       };
     };
@@ -149,8 +157,8 @@
 
     bat = {
       enable = true;
-      # bat ships gruvbox-light natively - no fetch needed
-      config.theme = "gruvbox-light";
+      # bat ships Nord natively - no fetch needed
+      config.theme = "Nord";
     };
   };
 }

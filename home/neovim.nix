@@ -17,25 +17,7 @@
         newChadrc="$(cat <<'EOF'
     ---@type ChadrcConfig
     local M = {}
-    -- base46's gruvbox_light isn't byte-exact to canonical Gruvbox Light
-    -- Medium; override the backgrounds specifically so they match Ghostty's
-    -- GruvboxLight theme
-    M.base46 = {
-      theme = "gruvbox_light",
-      changed_themes = {
-        gruvbox_light = {
-          base_30 = {
-            black = "#fbf1c7", -- canonical light0 (medium) bg
-            darker_black = "#ebdbb2", -- canonical light1 (panel bg)
-          },
-          -- integrations/defaults.lua's Normal group reads base_16.base00
-          -- directly rather than base_30.black, so it needs its own override
-          base_16 = {
-            base00 = "#fbf1c7",
-          },
-        },
-      },
-    }
+    M.base46 = { theme = "nord" }
     M.ui = { statusline = { theme = "vscode_colored" } }
     return M
     EOF

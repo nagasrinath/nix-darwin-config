@@ -31,7 +31,8 @@
     ...
   }: let
     username = "naga";
-    useremail = "nagasrinath@proton.me";
+    fullname = "Naga Srinath";
+    useremail = "nagasrinath@pm.me";
     system = "aarch64-darwin";
     hostname = "mac";
 
@@ -51,7 +52,7 @@
     specialArgs =
       inputs
       // {
-        inherit username useremail hostname wmMode wmEngine;
+        inherit username fullname useremail hostname wmMode wmEngine;
       };
   in {
     darwinConfigurations."${hostname}" = darwin.lib.darwinSystem {

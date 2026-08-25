@@ -1,11 +1,11 @@
 {
-  username,
+  fullname,
   useremail,
   ...
 }: {
   programs.git = {
     enable = true;
-    userName = username;
+    userName = fullname;
     userEmail = useremail;
 
     extraConfig = {

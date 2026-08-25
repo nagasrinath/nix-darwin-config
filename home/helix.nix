@@ -2,7 +2,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "gruvbox_light";
+      theme = "nord";
       editor = {
         bufferline = "multiple";
         cursorline = true;
@@ -54,8 +54,8 @@
       };
     };
 
-    themes.gruvbox_light_transparent = {
-      inherits = "gruvbox_light";
+    themes.nord_transparent = {
+      inherits = "nord";
       "ui.background" = {};
     };
 
@@ -77,6 +77,7 @@
           args = ["--stdio"];
         };
         jdtls.command = "jdtls";
+        rust-analyzer.command = "rust-analyzer";
       };
 
       language = [
@@ -115,6 +116,10 @@
         {
           name = "java";
           language-servers = ["jdtls"];
+        }
+        {
+          name = "rust";
+          language-servers = ["rust-analyzer"];
         }
       ];
     };
