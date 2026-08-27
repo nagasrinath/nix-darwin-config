@@ -10,7 +10,8 @@
     onActivation = {
       autoUpdate = true;
       upgrade = true;
-      cleanup = "none";
+      # Uninstall any brew/cask/tap not declared here (keeps app data; use "zap" to also delete data)
+      cleanup = "uninstall";
     };
 
     masApps = {
@@ -53,6 +54,10 @@
       "anomalyco/tap/opencode"
       "ampcode/tap/ampcode"
       "jcode"
+      "displayplacer"
+      "git-filter-repo"
+      "happy-coder"
+      "rust"
     ];
 
     casks = [
@@ -93,7 +98,6 @@
       "chatgpt"
       "free-download-manager"
 
-      "raycast"
       "tailscale-app"
       "wispr-flow"
       "vincelwt/tap/gloomberb"
