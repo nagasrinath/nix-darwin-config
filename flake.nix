@@ -21,6 +21,7 @@
       url = "github:areofyl/fetch";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
+
   };
 
   outputs = inputs @ {

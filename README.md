@@ -41,7 +41,7 @@ All set declaratively in `modules/system.nix`:
 - **Windows**: no window animations, drag windows with ctrl+cmd (anywhere in the window), title bar double-click does nothing, macOS window tiling (edge drag / opt-drag / margins) disabled, dragging to top of screen doesn't trigger Mission Control
 - **Display**: built-in display pinned to "More Space" scaling via `displayplacer` (activation script)
 - **Dock**: auto-hide (no delay), bottom, no rearranging by most-recently-used
-- **Menu bar**: auto-hidden, analog clock
+- **Menu bar**: analog clock
 - **Finder**: show all file extensions, path bar + status bar, list view by default, show external/USB/network drives on desktop
 - **Desktop**: icons hidden (Stage Manager style)
 - **Screenshots**: saved as PNG to `~/Pictures/Screenshots`
@@ -53,23 +53,25 @@ All set declaratively in `modules/system.nix`:
 ## Apps (Homebrew, declared in `modules/apps.nix`)
 
 - **Browsers**: Brave, Firefox, Chrome, Helium, Tor, Dia
-- **Development**: VS Code, Zed, Obsidian, JetBrains Toolbox, OrbStack, Postman, Sequel Ace, TablePlus, Superset, Supacode, opencode (via `anomalyco/tap`)
-- **Communication**: Discord, Telegram, Signal
-- **Productivity & utilities**: 1Password (+ CLI), Raycast, ChatGPT, Blip, Free Download Manager, Tailscale, NordVPN, Gloomberb, Itsycal
+- **Development**: VS Code, Zed, Obsidian, JetBrains Toolbox, OrbStack, Postman, Sequel Ace, TablePlus, Superset, Supacode, opencode (via `anomalyco/tap`), Claude Code, Codex, Copilot CLI
+- **Communication**: Discord, Telegram, Signal, nchat (via `d99kris/nchat`)
+- **Productivity & utilities**: 1Password (+ CLI), Raycast, ChatGPT, Blip, Free Download Manager, Tailscale, NordVPN, Gloomberb, Itsycal, Wispr Flow, AnyDesk
 - **Media & design**: GIMP, IINA, OBS, Spotify
 - **System & other**: AeroSpace (tiling WM), Ghostty, Nerd Fonts, Transmission, UTM, Steam, Xonotic
 - **Mac App Store**: WhatsApp, WireGuard, Windows App
 
+Homebrew's `openjdk` formula is keg-only, so `modules/system.nix` symlinks it into `/Library/Java/JavaVirtualMachines` via an activation script so `/usr/libexec/java_home` and GUI apps can find it.
+
 ## Terminal / shell
 
 - Shell: [fish](home/shell.nix) with [starship](home/starship.nix) prompt, Homebrew on PATH
-- Terminal: [Ghostty](home/ghostty.nix) — Catppuccin Mocha, Inconsolata Nerd Font, no "Last login" banner (`~/.hushlogin`)
-- CLI tools ([home/core.nix](home/core.nix)): ripgrep, fzf, eza, zoxide, bat, yazi, jq, gh, htop, fastfetch, and language servers/toolchains for Go, Python, Node, Lua, Java
+- Terminal: [Ghostty](home/ghostty.nix) — Tokyo Night, Iosevka Nerd Font Mono, no "Last login" banner (`~/.hushlogin`)
+- CLI tools ([home/core.nix](home/core.nix)): ripgrep, fzf, eza, zoxide, bat (Tokyo Night theme), yazi, jq, gh, htop, fastfetch, atuin (Tokyo Night theme), and language servers/toolchains for Go, Python, Node, Lua, Java
 
 ## Editors
 
-- [Helix](home/helix.nix) — primary editor, Catppuccin Mocha theme, LSPs for Nix/Go/Python/Lua/TS/Java
-- [Neovim](home/neovim.nix) — NvChad-based config, set as `$EDITOR`
+- [Helix](home/helix.nix) — primary editor, Tokyo Night theme (transparent background), LSPs for Nix/Go/Python/Lua/TS/Java
+- [Neovim](home/neovim.nix) — NvChad-based config, Tokyo Night theme (transparent), set as `$EDITOR`
 
 ## Window management
 

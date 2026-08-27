@@ -22,6 +22,14 @@ in {
       /bin/launchctl asuser "$(/usr/bin/id -u ${username})" /usr/bin/sudo -u ${username} /usr/bin/defaults delete NSGlobalDomain AppleInterfaceStyle >/dev/null 2>&1 || true
     '';
 
+    # Homebrew's openjdk formula is keg-only, so /usr/libexec/java_home and
+    # non-terminal apps can't find it without this symlink (brew's own
+    # post-install caveat for openjdk).
+    activationScripts.javaHome.text = ''
+      /bin/mkdir -p /Library/Java/JavaVirtualMachines
+      /bin/ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+    '';
+
     defaults = {
       menuExtraClock.IsAnalog = true;
 
@@ -65,7 +73,7 @@ in {
 
         # menu bar auto-hide: "Always"
         # (see https://developer.apple.com/documentation/devicemanagement/globalpreferences)
-        _HIHideMenuBar = true;
+        # _HIHideMenuBar = true;
 
         NSAutomaticCapitalizationEnabled = false;
         NSAutomaticDashSubstitutionEnabled = false;

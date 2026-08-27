@@ -29,9 +29,11 @@
       "acsandmann/tap"
       "ampcode/tap"
       "1jehuang/jcode"
+      "d99kris/nchat"
     ];
 
     brews = [
+      "nchat"
       "mas"
       "ruby"
       "scrcpy"
@@ -40,7 +42,6 @@
       "postgrest"
       "openjdk"
       "openvpn"
-      "copilot"
       "rift"
       "container"
       "fabric-ai"
@@ -77,6 +78,8 @@
       "claude-code"
       "obsidian"
       "claude"
+      "codex"
+      "copilot-cli"
 
       # Communication
       "discord"
@@ -92,6 +95,7 @@
 
       "raycast"
       "tailscale-app"
+      "wispr-flow"
       "vincelwt/tap/gloomberb"
       "itsycal"
 
@@ -114,6 +118,7 @@
       "utm"
       "steam"
       "xonotic"
+      "anydesk"
     ];
   };
 }

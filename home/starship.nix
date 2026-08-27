@@ -10,69 +10,25 @@
 
       add_newline = false;
 
+      # the separating space lives in this group, not in directory.format,
+      # so it's dropped along with $directory when $directory is empty (home)
+      format = "($directory )$character";
+
       character = {
-        success_symbol = "[󰁔](bold green)";
+        success_symbol = "[λ](bold green)";
         error_symbol = "[󰅖](bold red)";
         vimcmd_symbol = "[󰁍](bold green)";
       };
 
-      aws.disabled = true;
-      buf.symbol = " ";
-      bun.symbol = " ";
-      c.symbol = " ";
-      cpp.symbol = " ";
-      cmake.symbol = " ";
-      conda.symbol = " ";
-      crystal.symbol = " ";
-      dart.symbol = " ";
-      deno.symbol = " ";
-
-      directory.read_only = " 󰌾";
-
-      docker_context.symbol = " ";
-      elixir.symbol = " ";
-      elm.symbol = " ";
-      fennel.symbol = " ";
-      fossil_branch.symbol = " ";
-      gcloud.symbol = " ";
-      git_branch.symbol = " ";
-      git_commit.tag_symbol = "  ";
-
-      golang.symbol = "󰟓 ";
-      gradle.symbol = " ";
-      guix_shell.symbol = " ";
-      haskell.symbol = " ";
-      haxe.symbol = " ";
-      hg_branch.symbol = " ";
-      hostname.ssh_symbol = " ";
-      java.symbol = " ";
-      julia.symbol = " ";
-      kotlin.symbol = " ";
-      lua.symbol = " ";
-      memory_usage.symbol = "󰍛 ";
-      meson.symbol = "󰔷 ";
-      nim.symbol = "󰆥 ";
-      nix_shell.symbol = " ";
-      nodejs.symbol = " ";
-      ocaml.symbol = " ";
-
-      os.symbols = {
-        Macos = " ";
+      directory = {
+        truncation_length = 1;
+        read_only = " 󰌾";
+        # drop the module's own built-in trailing space so it's truly
+        # empty (not just blank text) when substituted away below
+        format = "[$path]($style)[$read_only]($read_only_style)";
+        # blank out the home symbol so the prompt is bare "λ" in $HOME
+        substitutions."~" = "";
       };
-
-      package.symbol = "󰏗 ";
-      perl.symbol = " ";
-      php.symbol = " ";
-      pijul_channel.symbol = " ";
-      pixi.symbol = "󰏗 ";
-      python.symbol = " ";
-      rlang.symbol = "󰟔 ";
-      ruby.symbol = " ";
-      rust.symbol = "󱘗 ";
-      scala.symbol = " ";
-      status.symbol = " ";
-      swift.symbol = " ";
-      zig.symbol = " ";
     };
   };
 }

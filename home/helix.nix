@@ -2,7 +2,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "nord";
+      theme = "tokyonight_transparent";
       editor = {
         bufferline = "multiple";
         cursorline = true;
@@ -54,8 +54,8 @@
       };
     };
 
-    themes.nord_transparent = {
-      inherits = "nord";
+    themes.tokyonight_transparent = {
+      inherits = "tokyonight";
       "ui.background" = {};
     };
 
