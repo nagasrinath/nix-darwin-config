@@ -10,8 +10,8 @@
     onActivation = {
       autoUpdate = true;
       upgrade = true;
-      # Uninstall any brew/cask/tap not declared here (keeps app data; use "zap" to also delete data)
-      cleanup = "uninstall";
+      # Remove any brew/cask/tap not declared here, including app data/configs
+      cleanup = "zap";
     };
 
     masApps = {
