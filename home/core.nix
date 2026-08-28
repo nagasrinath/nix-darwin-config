@@ -46,7 +46,6 @@
     python312
     python312Packages.python-lsp-server
     python312Packages.jedi-language-server
-    helix-gpt
     go
     gopls
     golangci-lint-langserver
@@ -61,7 +60,7 @@
     sshs
     rclone
     nodejs_24
-    nodePackages.typescript-language-server
+    typescript-language-server
     bun
     jdt-language-server
     leetcode-cli

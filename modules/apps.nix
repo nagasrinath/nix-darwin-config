@@ -20,16 +20,42 @@
       "Windows App" = 1295203466;
     };
 
+    # Homebrew 6 requires explicit trust for non-official taps
+    # (HOMEBREW_REQUIRE_TAP_TRUST); trusted = true embeds `trusted: true`
+    # into the generated Brewfile tap entries.
     taps = [
-      "nikitabobko/tap"
-      "grishka/grishka"
-      "mobile-dev-inc/tap"
-      "vincelwt/tap"
-      "nrwl/tap"
-      "anomalyco/tap"
-      "ampcode/tap"
-      "1jehuang/jcode"
-      "d99kris/nchat"
+      {
+        name = "nikitabobko/tap";
+        trusted = true;
+      }
+      {
+        name = "grishka/grishka";
+        trusted = true;
+      }
+      {
+        name = "mobile-dev-inc/tap";
+        trusted = true;
+      }
+      {
+        name = "vincelwt/tap";
+        trusted = true;
+      }
+      {
+        name = "nrwl/tap";
+        trusted = true;
+      }
+      {
+        name = "anomalyco/tap";
+        trusted = true;
+      }
+      {
+        name = "ampcode/tap";
+        trusted = true;
+      }
+      {
+        name = "d99kris/nchat";
+        trusted = true;
+      }
     ];
 
     brews = [
@@ -51,7 +77,6 @@
       "polygraph"
       "anomalyco/tap/opencode"
       "ampcode/tap/ampcode"
-      "jcode"
       "displayplacer"
       "git-filter-repo"
       "happy-coder"
