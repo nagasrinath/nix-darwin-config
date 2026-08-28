@@ -5,10 +5,10 @@
 }: {
   programs.git = {
     enable = true;
-    userName = fullname;
-    userEmail = useremail;
 
-    extraConfig = {
+    settings = {
+      user.name = fullname;
+      user.email = useremail;
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
       pull.rebase = true;
@@ -17,17 +17,17 @@
       gpg.format = "ssh";
       gpg.ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
       commit.gpgsign = true;
-    };
 
-    aliases = {
-      gs = "status";
-      ga = "add";
-      gc = "commit";
-      gp = "push";
-      gl = "log --oneline --graph --decorate";
-      gd = "diff";
-      gco = "checkout";
-      gb = "branch";
+      alias = {
+        gs = "status";
+        ga = "add";
+        gc = "commit";
+        gp = "push";
+        gl = "log --oneline --graph --decorate";
+        gd = "diff";
+        gco = "checkout";
+        gb = "branch";
+      };
     };
 
     ignores = [

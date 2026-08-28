@@ -7,6 +7,9 @@
     enable = true;
     defaultEditor = true;
     vimAlias = true;
+    # legacy defaults (stateVersion < 26.05); pinned to silence HM warnings
+    withRuby = true;
+    withPython3 = true;
   };
 
   home.activation.installNvChad = lib.hm.dag.entryAfter ["writeBoundary"] ''

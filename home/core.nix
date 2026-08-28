@@ -130,6 +130,8 @@
     yazi = {
       enable = true;
       enableFishIntegration = true;
+      # legacy default (stateVersion < 26.05); pinned to silence HM warning
+      shellWrapperName = "yy";
       settings = {
         mgr = {
           show_hidden = true;
