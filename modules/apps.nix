@@ -18,7 +18,6 @@
       "Whatsapp" = 310633997;
       "WireGuard" = 1451685025;
       "Windows App" = 1295203466;
-      "XCode" = 97799835;
     };
 
     taps = [
