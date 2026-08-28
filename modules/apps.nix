@@ -18,6 +18,7 @@
       "Whatsapp" = 310633997;
       "WireGuard" = 1451685025;
       "Windows App" = 1295203466;
+      "XCode" = 97799835;
     };
 
     taps = [
@@ -27,7 +28,6 @@
       "vincelwt/tap"
       "nrwl/tap"
       "anomalyco/tap"
-      "acsandmann/tap"
       "ampcode/tap"
       "1jehuang/jcode"
       "d99kris/nchat"
@@ -43,7 +43,6 @@
       "postgrest"
       "openjdk"
       "openvpn"
-      "rift"
       "container"
       "fabric-ai"
       "herdr"
@@ -79,6 +78,7 @@
       "yaak"
       "supacode"
       "visual-studio-code"
+      "cursor"
       "zed"
       "claude-code"
       "obsidian"

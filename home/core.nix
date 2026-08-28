@@ -62,6 +62,7 @@
     rclone
     nodejs_24
     nodePackages.typescript-language-server
+    bun
     jdt-language-server
     leetcode-cli
     croc
